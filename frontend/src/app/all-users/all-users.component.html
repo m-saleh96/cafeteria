@@ -1,0 +1,35 @@
+<p>all Users</p>
+
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Room</th>
+                <th scope="col">image</th>
+                <th scope="col">Ext</th>
+                <th  colspan="2">Action</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td></td>
+                <td>{{user.Name| uppercase}}</td>
+                <td>{{user.room}}</td>
+                <td><img [src]="user.Image" class="card-img-top" alt="..."></td>
+                <td>{{user.ext}}</td>
+                <td><button type="button" class="btn btn-warning"> Edit </button>
+                </td>
+                <td><button type="button" class="btn btn-danger">Delete</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
