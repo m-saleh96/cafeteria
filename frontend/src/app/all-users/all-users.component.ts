@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Users } from '../interfaces/users';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-all-users',
@@ -7,6 +9,7 @@ import { Users } from '../interfaces/users';
   styleUrls: ['./all-users.component.css']
 })
 export class AllUsersComponent {
+  constructor(private http: HttpClient, private router: Router){}
 users:Users[]=[
   {
     id: "1",
@@ -34,10 +37,14 @@ users:Users[]=[
   ext:5655
 
 
+}]
+AddUser(){
+  this.router.navigate(['addUser'])
+
 }
 
 
 
-]
-  //Name: semon, Email: semonsaleeb@gmail.com, Password: 123456789, Confirm Password: 123456789, Image*1.jpg
+
 }
+
