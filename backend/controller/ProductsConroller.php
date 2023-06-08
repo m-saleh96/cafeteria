@@ -2,7 +2,6 @@
 require_once('db.php');
 
 
-
 class ProductsController {
     public function getAllProducts() {
         global $db;
@@ -11,8 +10,7 @@ class ProductsController {
     }
 
     public function createProduct($data) {
-        global $db;
-        
+        global $db;        
         $target_dir = "images/";
         $image_name = time()."_".basename($_FILES["picture"]["name"]);
         $target_file = $target_dir . basename($image_name);
