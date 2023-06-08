@@ -1,6 +1,8 @@
 <?php
 require_once('db.php');
 
+
+
 class ProductsController {
     public function getAllProducts() {
         global $db;
@@ -10,6 +12,12 @@ class ProductsController {
 
     public function createProduct($data) {
         global $db;
+        
+        $target_dir = "images/";
+        $image_name = time()."_".basename($_FILES["picture"]["name"]);
+        $target_file = $target_dir . basename($image_name);
+         move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file);
+         $data['picture'] = $target_file;
         $products = $db->insert("products", $data);
          return $db->rows("SELECT * FROM products WHERE id = ?", [$products]);
     }
@@ -21,11 +29,14 @@ class ProductsController {
     }
     public function updateProduct($id, $data) {
         global $db;
-        // var_dump($data);
         $Id =['id' => $id];
+
+        $target_dir = "images/";
+        $image_name = time()."_".basename($_FILES["picture"]["name"]);
+        $target_file = $target_dir . basename($image_name);
+         move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file);
+         $data['picture'] = $target_file;
          $products = $db->update("products", $data, $Id);
-        //  echo $products;
-        //  echo $id;
         return $db->rows("SELECT * FROM products WHERE id = ?", [$id]);
     }
 
