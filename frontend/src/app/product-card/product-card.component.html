@@ -6,7 +6,7 @@
   <p class="card-text">{{product?.price}}</p>
   </div>
   <div class="card-footer text-center">
-      <a class="btn btn-dark px-5 ">Details</a>
+      <a class="btn btn-dark px-5 " (click)="redirectToProduct(product?.id)">Details</a>
   <small class="text-muted"></small>
   </div>
   <div class="vote"></div>

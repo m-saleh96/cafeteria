@@ -1,1 +1,10 @@
-<p>product-details works!</p>
+<div class="row">
+  <div class="col-md-4">
+      <img [src]="product.picture" alt="" width="100%">
+  </div>
+  <div class="col-md-8">
+      <h2 class="my-2">{{product.name}}</h2>
+      <h4 class="my-2 ">{{product.description}}</h4>
+      <p class="my-2 lead secondFontColor">{{product.price}}</p>
+  </div>
+</div>
