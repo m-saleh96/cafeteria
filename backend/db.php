@@ -13,7 +13,7 @@ $options = [
     'type' => 'mysql',
     'charset' => 'utf8',
     'host' => 'localhost',
-    'port' => '3307'
+    'port' => '3306'
 ];
 
 $db = new Database($options);
