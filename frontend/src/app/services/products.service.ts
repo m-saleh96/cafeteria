@@ -16,7 +16,9 @@ export class ProductsService {
     return this.http.get(`http://localhost/cafeteria/backend/product/${id}`)
   }
 
-
+  addProduct(formData:any){
+    return this.http.post(`http://localhost/cafeteria/backend/products` , formData)
+  }
 
 
 
