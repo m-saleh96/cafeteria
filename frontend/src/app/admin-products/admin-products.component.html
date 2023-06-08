@@ -36,17 +36,17 @@
           </div>
           <div class="form-group my-2">
               <label>Category</label>
-              <input [class.is-valid]="addProducts.get('category')?.errors ==null && addProducts.get('category')?.touched"
-              formControlName='category' type="number" class="form-control">
-              <p *ngIf="addProducts.get('category')?.errors !=null && addProducts.get('category')?.touched"
+              <input [class.is-valid]="addProducts.get('category_id')?.errors ==null && addProducts.get('category_id')?.touched"
+              formControlName='category_id' type="number" class="form-control">
+              <p *ngIf="addProducts.get('category_id')?.errors !=null && addProducts.get('category_id')?.touched"
               class="py-2 text-danger">inValid</p>
           </div>
 
 
           <div class="form-group my-2">
             <label>photo</label>
-            <input [class.is-valid]="addProducts.get('photo')?.errors ==null && addProducts.get('photo')?.touched"
-            formControlName='photo' type="file" (change)="onFileSelected($event)" class="form-control">
+            <input [class.is-valid]="addProducts.get('picture')?.errors ==null && addProducts.get('picture')?.touched"
+            formControlName='picture' type="file" (change)="onFileSelected($event)" class="form-control">
         </div>
           <button [disabled]="addProducts.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeAddbutton">Add</button>
           <button [disabled]="addProducts.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeupdatebutton">update</button>
@@ -67,7 +67,7 @@
           </thead>
           <tbody>
               <tr *ngFor="let row of products">
-                  <td><img class="img-fluid" [src]="row.picture" width="50px"></td>
+                  <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/'+row.picture" width="50px"></td>
                   <td>{{row.name}}</td>
                   <td>{{row.price}}</td>
                   <td>{{row.description}}</td>

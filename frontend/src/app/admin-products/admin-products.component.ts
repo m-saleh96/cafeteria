@@ -28,8 +28,8 @@ export class AdminProductsComponent {
       'name' :new FormControl(null , [Validators.required]),
       'description' :new FormControl(null , [Validators.required ]),
       'price' :new FormControl(null , [Validators.required ]),
-      'category' :new FormControl(null , [Validators.required ]),
-      'photo' :new FormControl(null , [Validators.required ]),
+      'category_id' :new FormControl(null , [Validators.required ]),
+      'picture' :new FormControl(null , [Validators.required ]),
     })
 
     ngOnInit(){
@@ -41,16 +41,18 @@ export class AdminProductsComponent {
     {
       if (this.activeAddbutton) {
         if (this.addProducts.valid && this.selectedFile) {
+          console.log(addProducts.value);
           const formData = new FormData();
           formData.append('name', this.addProducts.get('name')!.value);
-          formData.append('title', this.addProducts.get('title')!.value);
-          formData.append('desc', this.addProducts.get('desc')!.value);
-          formData.append('author', this.addProducts.get('author')!.value);
-          formData.append('category', this.addProducts.get('category')!.value);
-          formData.append('photo', this.selectedFile);
-
+          formData.append('description', this.addProducts.get('description')!.value);
+          formData.append('price', this.addProducts.get('price')!.value);
+          formData.append('category_id', this.addProducts.get('category_id')!.value);
+          formData.append('picture', this.selectedFile);
+          console.log(formData);
           // Send the formData to the server using HttpClient
           this.productService.addProduct(formData).subscribe((data:any)=>{
+              console.log(data);
+
                 if (data.status === 'success') {
                   this.activeForm = false;
                   this.activeAddbutton = false
@@ -65,11 +67,10 @@ export class AdminProductsComponent {
         if (this.addProducts.valid && this.selectedFile) {
           const formData = new FormData();
           formData.append('name', this.addProducts.get('name')!.value);
-          formData.append('title', this.addProducts.get('title')!.value);
-          formData.append('desc', this.addProducts.get('desc')!.value);
-          formData.append('author', this.addProducts.get('author')!.value);
-          formData.append('category', this.addProducts.get('category')!.value);
-          formData.append('photo', this.selectedFile);
+          formData.append('description', this.addProducts.get('description')!.value);
+          formData.append('price', this.addProducts.get('price')!.value);
+          formData.append('category_id', this.addProducts.get('category_id')!.value);
+          formData.append('picture', this.selectedFile);
 
         this.productService.updateProduct(this.productId ,formData).subscribe((data:any)=>{
           console.log(data);
@@ -88,12 +89,12 @@ export class AdminProductsComponent {
 
 
 
-  deleteproducts(_id: number) {
-    this.products = this.products.filter((elem:any)=>(elem._id)!=_id)
-    this.productService.getProduct(_id).subscribe((res:any) => {
-      if (res.success) {
-        this.productService.getProducts();
-      }
+  deleteproducts(id: number) {
+    console.log(id);
+    this.products = this.products.filter((elem:any)=>(elem.id)!=id)
+    this.productService.deleteProduct(id).subscribe((res:any) => {
+      console.log(res);
+
     });
 
   }
