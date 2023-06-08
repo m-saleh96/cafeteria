@@ -10,60 +10,106 @@ import { FormGroup , FormControl ,Validators, FormBuilder} from '@angular/forms'
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent {
-products!:Product[];
-flag:boolean=false;
-activeForm:boolean=false;
+  products!:Product[];
+  flag:boolean=false;
+  activeForm:boolean=false;
+  activeAddbutton:boolean = false;
+  activeupdatebutton:boolean = false;
+  productId!:number;
 
+  constructor(private productService:ProductsService ){}
 
+  selectedFile: File | null = null;
+    onFileSelected(event: any) {
+      this.selectedFile = event.target.files[0];
+    }
 
-constructor(private productService:ProductsService ){}
+    addProducts:FormGroup = new FormGroup({
+      'name' :new FormControl(null , [Validators.required]),
+      'description' :new FormControl(null , [Validators.required ]),
+      'price' :new FormControl(null , [Validators.required ]),
+      'category' :new FormControl(null , [Validators.required ]),
+      'photo' :new FormControl(null , [Validators.required ]),
+    })
 
-selectedFile: File | null = null;
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+    ngOnInit(){
+    this.productService.getProducts().subscribe((res:any)=>this.products=res);
+
   }
 
-  addProducts:FormGroup = new FormGroup({
-    'name' :new FormControl(null , [Validators.required]),
-    'description' :new FormControl(null , [Validators.required ]),
-    'price' :new FormControl(null , [Validators.required ]),
-    'category' :new FormControl(null , [Validators.required ]),
-    'photo' :new FormControl(null , [Validators.required ]),
-  })
+  add(addProducts:any)
+    {
+      if (this.activeAddbutton) {
+        if (this.addProducts.valid && this.selectedFile) {
+          const formData = new FormData();
+          formData.append('name', this.addProducts.get('name')!.value);
+          formData.append('title', this.addProducts.get('title')!.value);
+          formData.append('desc', this.addProducts.get('desc')!.value);
+          formData.append('author', this.addProducts.get('author')!.value);
+          formData.append('category', this.addProducts.get('category')!.value);
+          formData.append('photo', this.selectedFile);
 
-  ngOnInit(){
-  this.productService.getProducts().subscribe((res:any)=>this.products=res);
+          // Send the formData to the server using HttpClient
+          this.productService.addProduct(formData).subscribe((data:any)=>{
+                if (data.status === 'success') {
+                  this.activeForm = false;
+                  this.activeAddbutton = false
+                  alert("success")
+                }
+                else{
+                  this.flag = true
+                }})
+        }
 
-}
+      } else if(this.activeupdatebutton){
+        if (this.addProducts.valid && this.selectedFile) {
+          const formData = new FormData();
+          formData.append('name', this.addProducts.get('name')!.value);
+          formData.append('title', this.addProducts.get('title')!.value);
+          formData.append('desc', this.addProducts.get('desc')!.value);
+          formData.append('author', this.addProducts.get('author')!.value);
+          formData.append('category', this.addProducts.get('category')!.value);
+          formData.append('photo', this.selectedFile);
 
-add(addProducts:any)
-  {
+        this.productService.updateProduct(this.productId ,formData).subscribe((data:any)=>{
+          console.log(data);
 
-      if (this.addProducts.valid && this.selectedFile) {
-        const formData = new FormData();
-        formData.append('name', this.addProducts.get('name')!.value);
-        formData.append('title', this.addProducts.get('title')!.value);
-        formData.append('desc', this.addProducts.get('desc')!.value);
-        formData.append('author', this.addProducts.get('author')!.value);
-        formData.append('category', this.addProducts.get('category')!.value);
-        formData.append('photo', this.selectedFile);
-
-        // Send the formData to the server using HttpClient
-        this.productService.addProduct(formData).subscribe((data:any)=>{
-              if (data.status === 'success') {
-                this.activeForm = false;
-                alert("success")
-              }
-              else{
-                this.flag = true
-              }})
+          if (data.status === 'success') {
+            this.activeForm = false;
+            this.activeupdatebutton = false
+            alert("Updated")
+          }
+          else{
+            this.flag = true
+          }})
+        }
       }
-
     }
 
-    addform(){
-      this.activeForm = true;
 
-    }
+
+  deleteproducts(_id: number) {
+    this.products = this.products.filter((elem:any)=>(elem._id)!=_id)
+    this.productService.getProduct(_id).subscribe((res:any) => {
+      if (res.success) {
+        this.productService.getProducts();
+      }
+    });
+
+  }
+
+  addform(){
+    this.activeForm = true;
+    this.activeAddbutton = true;
+    this.activeupdatebutton = false;
+  }
+  updateform(id:number){
+    this.productId=id;
+    console.log(this.productId);
+
+    this.activeForm = true;
+    this.activeupdatebutton = true;
+    this.activeAddbutton = false;
+  }
 
 }
