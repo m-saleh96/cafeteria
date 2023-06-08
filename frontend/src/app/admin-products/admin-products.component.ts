@@ -53,7 +53,7 @@ export class AdminProductsComponent {
           this.productService.addProduct(formData).subscribe((data:any)=>{
               console.log(data);
 
-                if (data.status === 'success') {
+                if (data) {
                   this.activeForm = false;
                   this.activeAddbutton = false
                   alert("success")
@@ -73,9 +73,7 @@ export class AdminProductsComponent {
           formData.append('picture', this.selectedFile);
 
         this.productService.updateProduct(this.productId ,formData).subscribe((data:any)=>{
-          console.log(data);
-
-          if (data.status === 'success') {
+          if (data) {
             this.activeForm = false;
             this.activeupdatebutton = false
             alert("Updated")
