@@ -1,0 +1,39 @@
+<div>
+  <div class="row flex-nowrap">
+    <div class="row">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 first">
+        <app-admin-panel></app-admin-panel>
+      </div>
+
+      <div class="col-lg-9 col-md-9 col-sm-9 mx-5">
+
+
+
+
+        <table class="table table-bordered text-center">
+          <thead>
+              <tr>
+                  <th scope="col">photo</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">price</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let row of products">
+                  <td><img class="img-fluid" [src]="row.picture" width="50px"></td>
+                  <td>{{row.name}}</td>
+                  <td>{{row.price}}</td>
+                  <td>{{row.description}}</td>
+                  <td><button type="button" class="btn btn-secondary" (click)="updateform(row.id)">Edit</button></td>
+                  <td><button type="button" class="btn btn-danger" (click)="deleteproducts(row.id)">Delete</button></td>
+              </tr>
+
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+

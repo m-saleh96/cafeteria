@@ -11,9 +11,14 @@ export class ProductsService {
   getProducts(){
     return this.http.get(`http://localhost/cafeteria/backend/products`)
   }
+
   getProduct(id:number){
     return this.http.get(`http://localhost/cafeteria/backend/product/${id}`)
   }
+
+
+
+
 
 
 
