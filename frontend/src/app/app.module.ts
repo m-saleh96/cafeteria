@@ -25,7 +25,7 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
     AdminProductsComponent,
     AdminCategoryComponent,
     AllUsersComponent,
-    AddUserComponent
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,

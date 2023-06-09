@@ -1,8 +1,10 @@
 export interface Users {
-    id: string,
+    id: number,
     Name: string,
-    room: number,
-    Image: string,
-    ext:number
+    Email:string,
+    Password:string,
+    Room_No: number,
+    picture: string,
+    Ext:number
 
 }

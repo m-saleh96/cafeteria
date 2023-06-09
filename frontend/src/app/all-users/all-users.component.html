@@ -1,6 +1,60 @@
-<h1>all Users</h1>
+ <h1>all Users</h1>
 
-
+<!--
+<div *ngIf="toDisplay">
+    <div class="form-group"> 
+      <div class="row" >
+        <form  class="w-75 m-auto py-5"  [formGroup]="addUsers"  enctype="multipart/form-data">
+            <div class="form-group my-2">
+                <label>Name</label>
+                <input [class.is-valid]="addUsers.get('name')?.errors ==null && addUsers.get('name')?.touched"
+                formControlName='name' type="text" class="form-control">
+                <p *ngIf="addUsers.get('name')?.errors !=null && addUsers.get('name')?.touched"
+                class="py-2 text-danger">inValid</p>
+            </div>
+            <div class="form-group my-2">
+                <label>Email</label>
+                <input [class.is-valid]="addUsers.get('email')?.errors ==null && addUsers.get('email')?.touched"
+                formControlName='email' type="text" class="form-control">
+                <p *ngIf="addUsers.get('email')?.errors !=null && addUsers.get('email')?.touched"
+                class="py-2 text-danger">inValid</p>
+            </div>
+            <div class="form-group my-2">
+                <label>Password</label>
+                <input [class.is-valid]="addUsers.get('password')?.errors ==null && addUsers.get('password')?.touched"
+                formControlName='password' type="password" class="form-control">
+                <p *ngIf="addUsers.get('password')?.errors !=null && addUsers.get('password')?.touched"
+                class="py-2 text-danger">inValid</p>
+            </div>
+        
+            <div class="form-group my-2">
+                <label>Room</label>
+                <input [class.is-valid]="addUsers.get('room')?.errors ==null && addUsers.get('room')?.touched"
+                formControlName='room' type="text" class="form-control">
+                <p *ngIf="addUsers.get('room')?.errors !=null && addUsers.get('room')?.touched"
+                class="py-2 text-danger">inValid</p>
+            </div>
+            <div class="form-group my-2">
+                <label>Ext</label>
+                <input [class.is-valid]="addUsers.get('ext')?.errors ==null && addUsers.get('ext')?.touched"
+                formControlName='ext' type="text" class="form-control">
+                <p *ngIf="addUsers.get('ext')?.errors !=null && addUsers.get('ext')?.touched"
+                class="py-2 text-danger">inValid</p>
+            </div>
+            <div class="form-group my-2">
+                <label>photo</label>
+                <input [class.is-valid]="addUsers.get('picture')?.errors ==null && addUsers.get('picture')?.touched"
+                formControlName='picture' type="file" (change)="onFileSelected($event)"  class="form-control">
+            </div>
+            <button  type="submit" class="btn btn-primary text-white my-2" (click)="editUser(7)">Add</button>
+        
+        
+            
+        </form>
+  
+    </div>
+  </div>
+  </div> -->
 
 <div class="container">
     <button style="margin-bottom: 30px ;margin-left:900px ;margin-bottom:50px" (click)="AddUser()" class="btn btn-primary">Create New User</button>
@@ -22,12 +76,13 @@
             <tr *ngFor="let user of users">
                 <td></td>
                 <td>{{user.Name| uppercase}}</td>
-                <td>{{user.room}}</td>
-                <td><img [src]="user.Image" class="card-img-top" alt="..."></td>
-                <td>{{user.ext}}</td>
+                <td>{{user.Room_No}}</td>
+                <!-- <td><img [src]="'http://localhost/cafeteria/backend/'+user.picture" class="card-img-top" alt="..."></td> -->
+                <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/images/'+user.picture" width="50px"></td>
+                <td>{{user.Ext}}</td>
                 <td><button type="button" class="btn btn-warning"> Edit </button>
                 </td>
-                <td><button type="button" class="btn btn-danger">Delete</button>
+                <td><button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
                 </td>
 
             </tr>

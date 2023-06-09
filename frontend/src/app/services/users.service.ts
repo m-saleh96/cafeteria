@@ -8,7 +8,7 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
 
-  getYsers(){
+  getUsers(){
     return this.http.get(`http://localhost/cafeteria/backend/users`)
   }
 
