@@ -16,6 +16,7 @@ use Rakit\Validation\Validator;
 $productsController = new ProductsController();
 $url = explode("/",$_SERVER['QUERY_STRING']);
 
+
 if($url[0] == 'products' && $_SERVER['REQUEST_METHOD'] == 'GET') {
     // $productsController = new ProductsController();
     $products = $productsController->getAllProducts();
@@ -51,6 +52,7 @@ if ($validation->fails()) {
             "picture" => $product_image,
             "category_id" => $category_id
     ];   
+
     $products = $productsController->createProduct($products);
      echo json_encode($products);
 }
