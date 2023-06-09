@@ -1,0 +1,9 @@
+<div class="main">
+  <div id="books" class="container">
+    <div class="row">
+      <div class="col-md-4 my-3" *ngFor="let product of products">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+  </div>
+</div>
+

@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit6ccef091e8fbdaa80ba1fdf27a220d4f
 {
     public static $prefixLengthsPsr4 = array (
+        'R' => 
+        array (
+            'Rakit\\Validation\\' => 17,
+        ),
         'D' => 
         array (
             'Dcblogdev\\PdoWrapper\\' => 21,
@@ -14,6 +18,10 @@ class ComposerStaticInit6ccef091e8fbdaa80ba1fdf27a220d4f
     );
 
     public static $prefixDirsPsr4 = array (
+        'Rakit\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rakit/validation/src',
+        ),
         'Dcblogdev\\PdoWrapper\\' => 
         array (
             0 => __DIR__ . '/..' . '/dcblogdev/pdo-wrapper/src',
