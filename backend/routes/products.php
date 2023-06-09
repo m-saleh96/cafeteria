@@ -12,6 +12,7 @@ require_once 'controller/ProductsConroller.php';
 $productsController = new ProductsController();
 $url = explode("/",$_SERVER['QUERY_STRING']);
 
+
 if($url[0] == 'products' && $_SERVER['REQUEST_METHOD'] == 'GET') {
     // $productsController = new ProductsController();
     $products = $productsController->getAllProducts();
@@ -41,8 +42,9 @@ else if($url[0] == 'products' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] =
     ];   
 
 }
-    $products = $productsController->createProduct($products);
-     echo json_encode($products);
+    // $products = $productsController->createProduct($products);
+    //  echo json_encode($products);
+     echo json_encode("dbn,");
    
 }
 else if($url[0]=='product' && $_SERVER['REQUEST_METHOD'] == 'GET') {
