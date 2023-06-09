@@ -91,10 +91,10 @@ export class AdminProductsComponent {
     console.log(id);
     this.products = this.products.filter((elem:any)=>(elem.id)!=id)
     this.productService.deleteProduct(id).subscribe((res:any) => {
-      console.log(res);
-
+      if (res) {
+        alert("deleted successfully")
+      }
     });
-
   }
 
   addform(){
