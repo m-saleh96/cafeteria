@@ -7,6 +7,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { WelcomeComponent } from './admin/welcome/welcome.component';
+import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   {
     path:'',
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path:'home',
     component : HomeComponent
+  },
+  {
+    path: 'register',
+    component : RegisterComponent
   },
   {
     path:'product-details/:id',

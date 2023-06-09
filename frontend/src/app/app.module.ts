@@ -15,6 +15,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { WelcomeComponent } from './admin/welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HomeComponent } from './home/home.component';
     WelcomeComponent,
     HeaderComponent,
     HomeComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
