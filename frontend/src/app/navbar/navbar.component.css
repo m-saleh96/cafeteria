@@ -12,3 +12,6 @@ h1{
 span{
   font-family: 'Petit Formal Script', cursive;
 }
+.navbar{
+ background-color: var(--main-color);
+}
