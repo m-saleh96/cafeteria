@@ -8,6 +8,7 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { WelcomeComponent } from './admin/welcome/welcome.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path:'',
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'register',
     component : RegisterComponent
+  },
+  {
+    path: 'login',
+    component : LoginComponent
   },
   {
     path:'product-details/:id',
