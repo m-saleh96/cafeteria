@@ -8,9 +8,13 @@ import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-import { AdminProductsComponent } from './admin-products/admin-products.component';
-import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { WelcomeComponent } from './admin/welcome/welcome.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
     ProductDetailsComponent,
     AdminPanelComponent,
     AdminProductsComponent,
-    AdminCategoryComponent
+    AdminCategoryComponent,
+    DashboardComponent,
+    WelcomeComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
