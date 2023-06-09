@@ -5,3 +5,10 @@
 a{
     cursor: pointer;
 }
+h1{
+  font-family: 'Amatic SC', cursive;
+
+}
+span{
+  font-family: 'Petit Formal Script', cursive;
+}
