@@ -56,7 +56,6 @@ if ($validation->fails()) {
     $products = $productsController->createProduct($products);
      echo json_encode($products);
 }
-
    
 }
 else if($url[0]=='product' && $_SERVER['REQUEST_METHOD'] == 'GET') {
