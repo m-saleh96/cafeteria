@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product';
 import { FormGroup , FormControl ,Validators, FormBuilder} from '@angular/forms';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-admin-products',
@@ -49,7 +47,6 @@ export class AdminProductsComponent {
           formData.append('category_id', this.addProducts.get('category_id')!.value);
           formData.append('picture', this.selectedFile);
           console.log(formData);
-          // Send the formData to the server using HttpClient
           this.productService.addProduct(formData).subscribe((data:any)=>{
                 if (data) {
                   this.activeForm = false;
