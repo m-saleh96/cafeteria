@@ -18,6 +18,8 @@ import { WelcomeComponent } from './admin/welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     HeaderComponent,
     HomeComponent,
     EditUserComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

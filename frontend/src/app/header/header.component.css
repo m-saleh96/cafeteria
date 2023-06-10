@@ -1,7 +1,17 @@
-.container-fluid {
+.main {
   background-image: url('../../assets/images/bgheader.jpg');
   background-size: cover;
   background-position: center;
   color: white;
   height: 90vh;
+}
+button{
+  background-color: var(--light-beige);
+  font-weight: 500;
+}
+span{
+  font-family: 'Petit Formal Script', cursive;
+}
+.h1{
+  font-family: 'Amatic SC', cursive;
 }
