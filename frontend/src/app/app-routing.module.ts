@@ -14,10 +14,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
-    path: 'users',
-    component: AllUsersComponent
-  },
-  {
     path: 'editUser/:id',
     component: EditUserComponent
   },
@@ -54,12 +50,16 @@ const routes: Routes = [
         component:WelcomeComponent
       },
       {
-        path:'categories',
-        component : AdminCategoryComponent
+        path: 'users',
+        component: AllUsersComponent
       },
       {
         path:'products',
         component : AdminProductsComponent
+      },
+      {
+        path:'categories',
+        component : AdminCategoryComponent
       },
     ]
   }
