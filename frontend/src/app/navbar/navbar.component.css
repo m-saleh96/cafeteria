@@ -1,7 +1,17 @@
+.navbar{
+  background-color: var(--main-color);
+}
 .active{
     border-bottom: 2px solid white;
   }
 
 a{
     cursor: pointer;
+}
+h1{
+  font-family: 'Amatic SC', cursive;
+
+}
+span{
+  font-family: 'Petit Formal Script', cursive;
 }

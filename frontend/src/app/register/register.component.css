@@ -1,0 +1,8 @@
+.btn{
+  background-color: var(--light-beige);
+  font-weight: 500;
+}
+.container-fluid{
+  background-image: url(../../assets/images/coffee-beans.jpg);
+  background-size: cover;
+}
