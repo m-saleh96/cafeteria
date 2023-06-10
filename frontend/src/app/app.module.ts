@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ThirdHomeSectionComponent } from './third-home-section/third-home-section.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LoginComponent } from './login/login.component';
     EditUserComponent,
     RegisterComponent,
     LoginComponent,
+    ThirdHomeSectionComponent,
   ],
   imports: [
     BrowserModule,
