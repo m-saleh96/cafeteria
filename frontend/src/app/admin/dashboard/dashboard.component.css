@@ -1,3 +1,6 @@
 .panel{
   background-color: var(--main-color);
 }
+.main{
+  background-color: var(--main-color);
+}
