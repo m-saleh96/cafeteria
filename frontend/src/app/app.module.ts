@@ -21,6 +21,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ThirdHomeSectionComponent } from './third-home-section/third-home-section.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ThirdHomeSectionComponent } from './third-home-section/third-home-secti
     RegisterComponent,
     LoginComponent,
     ThirdHomeSectionComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
