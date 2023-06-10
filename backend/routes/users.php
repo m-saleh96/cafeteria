@@ -22,7 +22,7 @@ if($url[0] == 'users' && $_SERVER['REQUEST_METHOD'] == 'GET') {
         $id = $url[1];
         $users = $usersController->getuser($id);
         echo json_encode($users);
-        echo json_encode($id);
+        // echo json_encode($id);
         exit;
     }else{
     $users = $usersController->getAllusers();
