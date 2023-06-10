@@ -53,7 +53,7 @@ add(addUsers:any)
         this.userService.addUser(formData).subscribe((data:any)=>{
             console.log(data);
             this.users=data
-            this.router.navigate(['users'])
+            this.router.navigate(['admin/users'])
 
             }
             )
