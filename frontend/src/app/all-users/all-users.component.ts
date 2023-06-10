@@ -19,17 +19,17 @@ activeAddbutton:boolean = false;
 activeupdatebutton:boolean = false;
 productId!:number;
 AddUser(){
-  this.router.navigate(['addUser'])
+  this.router.navigate(['/admin/addUser'])
 
 }
 ngOnInit(): void {
-  
+
   this.usersService.getUsers().subscribe((res: any) => this.users = res);
 console.log(this.users);
 
 }
 deleteUser(id: number) {
-  console.log(id);  
+  console.log(id);
   this.users = this.users.filter((elem:any)=>(elem.id)!=id)
   this.usersService.deleteUser(id).subscribe((res:any) => {
     console.log(res);
