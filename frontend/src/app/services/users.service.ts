@@ -12,7 +12,7 @@ export class UsersService {
     return this.http.get(`http://localhost/cafeteria/backend/users`)
   }
 
-  getUser(id:number){
+  getUser(id :number){
     return this.http.get(`http://localhost/cafeteria/backend/users/${id}`)
   }
 

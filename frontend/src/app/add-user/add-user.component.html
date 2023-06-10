@@ -39,7 +39,7 @@
     <div class="form-group my-2">
         <label>photo</label>
         <input [class.is-valid]="addUsers.get('picture')?.errors ==null && addUsers.get('picture')?.touched"
-        formControlName='picture' type="file" (change)="onFileSelected($event)" class="form-control">
+        formControlName='picture' type="file" (change)="onFileSelected($event)"  class="form-control">
     </div>
     <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
     <button  type="submit" class="btn btn-primary text-white my-2" (click)="add(addUsers)">Add</button>
