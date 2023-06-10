@@ -18,4 +18,25 @@ $options = [
 
 $db = new Database($options);
 
+
+
+
+//create category table
+try {
+    $conn = new PDO("mysql:host=localhost;dbname=cafeteria", "root", "");
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql = "CREATE TABLE IF NOT EXISTS category (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL)";
+
+
+$conn->exec($sql);
+} catch(PDOException $e) {
+echo "Error creating table: " . $e->getMessage();
+}
+
+
+$conn = null;
 ?>
