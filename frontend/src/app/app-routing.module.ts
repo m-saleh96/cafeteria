@@ -18,9 +18,6 @@ const routes: Routes = [
     component: EditUserComponent
   },
   {
-    path: 'addUser',
-    component: AddUserComponent},
-  {
     path:'',
     redirectTo : 'home',
     pathMatch:"full"
@@ -52,6 +49,10 @@ const routes: Routes = [
       {
         path: 'users',
         component: AllUsersComponent
+      },
+      {
+        path: 'addUser',
+        component: AddUserComponent
       },
       {
         path:'products',
