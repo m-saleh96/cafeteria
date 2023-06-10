@@ -29,9 +29,9 @@ userInfo!:any;
     this.userService.getUser(this.userId).subscribe((res: any) =>{this.users = res;
       console.log(Object.values(this.users));
 
-      
-     } ) 
-    
+
+     } )
+
 
   }
 
@@ -69,7 +69,7 @@ userInfo!:any;
           this.userService.updateUser(this.userId,formData).subscribe((data:any)=>{
               console.log(data);
               this.users=data
-              this.router.navigate(['users'])
+              this.router.navigate(['/admin/users'])
 
               }
               )
