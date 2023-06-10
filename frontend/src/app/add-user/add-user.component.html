@@ -1,0 +1,49 @@
+<p>add-user works!</p>
+<form  class="w-75 m-auto py-5"  [formGroup]="addUsers"  enctype="multipart/form-data">
+    <div class="form-group my-2">
+        <label>Name</label>
+        <input [class.is-valid]="addUsers.get('name')?.errors ==null && addUsers.get('name')?.touched"
+        formControlName='name' type="text" class="form-control">
+        <p *ngIf="addUsers.get('name')?.errors !=null && addUsers.get('name')?.touched"
+        class="py-2 text-danger">inValid</p>
+    </div>
+    <div class="form-group my-2">
+        <label>Email</label>
+        <input [class.is-valid]="addUsers.get('email')?.errors ==null && addUsers.get('email')?.touched"
+        formControlName='email' type="text" class="form-control">
+        <p *ngIf="addUsers.get('email')?.errors !=null && addUsers.get('email')?.touched"
+        class="py-2 text-danger">inValid</p>
+    </div>
+    <div class="form-group my-2">
+        <label>Password</label>
+        <input [class.is-valid]="addUsers.get('password')?.errors ==null && addUsers.get('password')?.touched"
+        formControlName='password' type="password" class="form-control">
+        <p *ngIf="addUsers.get('password')?.errors !=null && addUsers.get('password')?.touched"
+        class="py-2 text-danger">inValid</p>
+    </div>
+
+    <div class="form-group my-2">
+        <label>Room</label>
+        <input [class.is-valid]="addUsers.get('room')?.errors ==null && addUsers.get('room')?.touched"
+        formControlName='room' type="text" class="form-control">
+        <p *ngIf="addUsers.get('room')?.errors !=null && addUsers.get('room')?.touched"
+        class="py-2 text-danger">inValid</p>
+    </div>
+    <div class="form-group my-2">
+        <label>Ext</label>
+        <input [class.is-valid]="addUsers.get('ext')?.errors ==null && addUsers.get('ext')?.touched"
+        formControlName='ext' type="text" class="form-control">
+        <p *ngIf="addUsers.get('ext')?.errors !=null && addUsers.get('ext')?.touched"
+        class="py-2 text-danger">inValid</p>
+    </div>
+    <div class="form-group my-2">
+        <label>photo</label>
+        <input [class.is-valid]="addUsers.get('picture')?.errors ==null && addUsers.get('picture')?.touched"
+        formControlName='picture' type="file" (change)="onFileSelected($event)"  class="form-control">
+    </div>
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    <button  type="submit" class="btn btn-primary text-white my-2" (click)="add(addUsers)">Add</button>
+
+
+    
+</form>
