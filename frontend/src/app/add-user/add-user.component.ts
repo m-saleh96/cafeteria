@@ -35,7 +35,7 @@ selectedFile: File | null = null;
     'ext' :new FormControl(null , [Validators.required ]),
     'picture' :new FormControl(null , [Validators.required ]),
   })
-  
+
 
 add(addUsers:any)
   {
@@ -53,13 +53,13 @@ add(addUsers:any)
         this.userService.addUser(formData).subscribe((data:any)=>{
             console.log(data);
             this.users=data
-            this.router.navigate(['users'])
+            this.router.navigate(['/admin/users'])
 
             }
             )
-    
+
     }
   }
 
-  
+
 }
