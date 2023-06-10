@@ -1,3 +1,6 @@
 .main{
   background-color: black;
 }
+a{
+  color: var(--light-beige);
+}
