@@ -4,3 +4,11 @@
 a{
   color: var(--light-beige);
 }
+.active-link {
+  color: var(--light-orange);
+
+}
+a:hover {
+  color: var(--light-orange);
+}
+

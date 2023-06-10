@@ -2,5 +2,5 @@
   background-color: var(--main-color);
 }
 .main{
-  background: linear-gradient(to right, black 50%, white 50%);
+  background: linear-gradient(to right, var(--main-color) 50%, white 50%);
 }
