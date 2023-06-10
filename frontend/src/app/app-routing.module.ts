@@ -12,7 +12,8 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path:'',
-    component : ProductListComponent
+    redirectTo : 'home',
+    pathMatch:"full"
   },
   {
     path:'home',
