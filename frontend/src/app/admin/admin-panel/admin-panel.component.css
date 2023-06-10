@@ -2,13 +2,14 @@
   background-color: black;
 }
 a{
-  color: var(--light-beige);
+  color: white
 }
 .active-link {
-  color: var(--light-orange);
+  color: var(--light-beige);
+  text-shadow: 0px 0px 10px var(--light-beige);
 
 }
 a:hover {
-  color: var(--light-orange);
+  color: var(--light-beige);
 }
 
