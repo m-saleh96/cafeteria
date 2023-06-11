@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product';
 import { FormGroup , FormControl ,Validators, FormBuilder} from '@angular/forms';
+import { Category } from 'src/app/interfaces/category';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -10,13 +12,14 @@ import { FormGroup , FormControl ,Validators, FormBuilder} from '@angular/forms'
 })
 export class AdminProductsComponent {
   products!:Product[];
+  category!:Category[];
   flag:boolean=false;
   activeForm:boolean=false;
   activeAddbutton:boolean = false;
   activeupdatebutton:boolean = false;
   productId!:number;
 
-  constructor(private productService:ProductsService){}
+  constructor(private productService:ProductsService , private categoryService:CategoryService){}
 
   selectedFile: File | null = null;
     onFileSelected(event: any) {
@@ -33,6 +36,7 @@ export class AdminProductsComponent {
 
     ngOnInit(){
     this.productService.getProducts().subscribe((res:any)=>this.products=res);
+    this.categoryService.getCategories().subscribe((res:any)=>this.category=res)
 
   }
 
