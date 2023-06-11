@@ -1,1 +1,36 @@
-<p>cat</p>
+<div class="container pt-5 text-end pb-3">
+  <button (click)="addform()" class="btn btn-primary text-white">Add Category</button>
+</div>
+
+<form *ngIf="activeForm" class="w-75 m-auto py-5"  [formGroup]="addCategory" (ngSubmit)="add(addCategory)" enctype="multipart/form-data">
+
+  <div class="form-group my-2">
+      <label>Name</label>
+      <input [class.is-valid]="addCategory.get('name')?.errors ==null && addCategory.get('name')?.touched"
+      formControlName='name' type="text" class="form-control">
+      <p *ngIf="addCategory.get('name')?.errors !=null && addCategory.get('name')?.touched"
+      class="py-2 text-danger">inValid</p>
+  </div>
+
+  <button [disabled]="addCategory.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeAddbutton">Add</button>
+  <button [disabled]="addCategory.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeupdatebutton">update</button>
+</form>
+
+<table class="table table-bordered text-center">
+  <thead>
+      <tr>
+          <th scope="col">fullname</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let row of category">
+          <td>{{row.name}}</td>
+          <td><button type="button" class="btn btn-secondary" (click)="updateform(row.id)">Edit</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="deletecategory(row.id)">Delete</button></td>
+
+      </tr>
+
+  </tbody>
+</table>

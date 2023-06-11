@@ -38,7 +38,7 @@
     <label>photo</label>
     <input [class.is-valid]="addProducts.get('picture')?.errors ==null && addProducts.get('picture')?.touched"
     formControlName='picture' type="file" (change)="onFileSelected($event)" class="form-control">
-</div>
+  </div>
   <button [disabled]="addProducts.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeAddbutton">Add</button>
   <button [disabled]="addProducts.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeupdatebutton">update</button>
 </form>

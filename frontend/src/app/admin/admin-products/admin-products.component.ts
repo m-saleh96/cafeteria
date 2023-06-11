@@ -46,7 +46,6 @@ export class AdminProductsComponent {
           formData.append('price', this.addProducts.get('price')!.value);
           formData.append('category_id', this.addProducts.get('category_id')!.value);
           formData.append('picture', this.selectedFile);
-          console.log(formData);
           this.productService.addProduct(formData).subscribe((data:any)=>{
                 if (data) {
                   this.activeForm = false;
@@ -104,6 +103,15 @@ export class AdminProductsComponent {
     this.activeForm = true;
     this.activeupdatebutton = true;
     this.activeAddbutton = false;
+    const product = this.products.find((elem: any) => elem.id === id);
+    if (product) {
+      this.addProducts.patchValue({
+        'name': product.name,
+        'description':product.description,
+        'price':product.price,
+        'category_id':product.category_id,
+      });
+    }
   }
 
 }
