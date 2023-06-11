@@ -1,11 +1,7 @@
 .main {
-  background-image: url('../../assets/images/blackbg.jpg');
+  background-color: var(--main-color);
   background-size: cover;
   background-position: center;
   color: white;
   height: 40vh;
-}
-img{
-  width: 900px;
-  z-index: 3;
 }

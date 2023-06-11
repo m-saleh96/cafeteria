@@ -22,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ThirdHomeSectionComponent } from './third-home-section/third-home-section.component';
 import { FooterComponent } from './footer/footer.component';
+import { FourthHomeSectionComponent } from './fourth-home-section/fourth-home-section.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     ThirdHomeSectionComponent,
     FooterComponent,
+    FourthHomeSectionComponent,
   ],
   imports: [
     BrowserModule,
