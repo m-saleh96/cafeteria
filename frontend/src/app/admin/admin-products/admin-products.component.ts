@@ -103,6 +103,15 @@ export class AdminProductsComponent {
     this.activeForm = true;
     this.activeupdatebutton = true;
     this.activeAddbutton = false;
+    const product = this.products.find((elem: any) => elem.id === id);
+    if (product) {
+      this.addProducts.patchValue({
+        'name': product.name,
+        'description':product.description,
+        'price':product.price,
+        'category_id':product.category_id,
+      });
+    }
   }
 
 }

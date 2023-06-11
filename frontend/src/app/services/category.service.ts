@@ -17,7 +17,7 @@ export class CategoryService {
   }
 
   updateCategory(formData:any , id:any) {
-  return this.http.put('http://localhost/cafeteria/backend/categories/'+id , formData);
+  return this.http.post('http://localhost/cafeteria/backend/categories/'+id , formData);
   }
 
   deletecategory(id:number) {

@@ -85,6 +85,12 @@ export class AdminCategoryComponent {
     this.activeForm = true;
     this.activeupdatebutton = true;
     this.activeAddbutton = false;
+    const category = this.category.find((elem: any) => elem.id === id);
+    if (category) {
+      this.addCategory.patchValue({
+        'name': category.name
+      });
+    }
   }
 
 }
