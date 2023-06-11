@@ -1,7 +1,7 @@
 <div class="container my-5">
   <div class="row">
-      <div class="col-lg-3 col-md-4 col-sm-6 first my-3 mx-3 back">
-        <app-category-card></app-category-card>
+      <div class="col-lg-3 col-md-4 col-sm-6 first my-3 mx-3 back" *ngFor="let category of categories">
+        <app-category-card [category]="category"></app-category-card>
       </div>
   </div>
 </div>

@@ -13,6 +13,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 const routes: Routes = [
   {
     path: 'editUser/:id',
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path:'category',
     component : CategoryListComponent
+  },
+  {
+    path:'category-details/:id',
+    component : CategoryDetailsComponent
   },
   {
     path: 'register',
