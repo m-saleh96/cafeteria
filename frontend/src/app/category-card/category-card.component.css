@@ -1,0 +1,20 @@
+h2{
+  margin-top: 37px;
+  border: 1px solid brown;
+  background-color: rgb(243, 243, 243);
+  color: brown;
+  padding: 2px 0px;
+}
+a{
+  margin-top: 30px;
+  font-size: 18px;
+  background-color: brown;
+  color: white;
+  border-color: brown;
+  transition: 1s;
+}
+a:hover{
+  background-color: white;
+  color: brown;
+  border-color: brown;
+}
