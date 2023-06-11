@@ -46,7 +46,6 @@ export class AdminProductsComponent {
           formData.append('price', this.addProducts.get('price')!.value);
           formData.append('category_id', this.addProducts.get('category_id')!.value);
           formData.append('picture', this.selectedFile);
-          console.log(formData);
           this.productService.addProduct(formData).subscribe((data:any)=>{
                 if (data) {
                   this.activeForm = false;

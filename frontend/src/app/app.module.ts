@@ -20,6 +20,9 @@ import { HomeComponent } from './home/home.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryCardComponent } from './category-card/category-card.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { LoginComponent } from './login/login.component';
     EditUserComponent,
     RegisterComponent,
     LoginComponent,
+    CategoryListComponent,
+    CategoryCardComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,
