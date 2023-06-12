@@ -21,7 +21,7 @@ export class ProductsService {
   }
 
   updateProduct(id:number , formData:any){
-    return this.http.post(`http://localhost/cafeteria/backend/products/${id}` , formData)
+    return this.http.post(`http://localhost/cafeteria/backend/products/${id}` , formData,{responseType: 'text'})
   }
 
   deleteProduct(id:number){
