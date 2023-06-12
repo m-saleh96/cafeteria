@@ -25,15 +25,17 @@ class ProductsController {
         $products = $db->row("SELECT * FROM products WHERE id = ?", [$id]);
         return $products;
     }
-    public function updateProduct($id, $data) {
+    public function updateProduct($id, $data,$pic_updated) {
         global $db;
         $Id =['id' => $id];
 
+       if($pic_updated){
         $target_dir = "images/";
         $image_name = time()."_".basename($_FILES["picture"]["name"]);
         $target_file = $target_dir . basename($image_name);
          move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file);
          $data['picture'] = $target_file;
+       }
          $products = $db->update("products", $data, $Id);
         return $db->rows("SELECT * FROM products WHERE id = ?", [$id]);
     }
