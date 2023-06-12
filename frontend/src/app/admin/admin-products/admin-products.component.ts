@@ -18,6 +18,7 @@ export class AdminProductsComponent {
   activeAddbutton:boolean = false;
   activeupdatebutton:boolean = false;
   productId!:number;
+  oldPic!:any;
 
   constructor(private productService:ProductsService , private categoryService:CategoryService){}
 
@@ -31,7 +32,7 @@ export class AdminProductsComponent {
       'description' :new FormControl(null , [Validators.required ]),
       'price' :new FormControl(null , [Validators.required ]),
       'category_id' :new FormControl(null , [Validators.required ]),
-      'picture' :new FormControl(null , [Validators.required ]),
+      'picture' :new FormControl(null),
     })
 
     ngOnInit(){
@@ -109,6 +110,7 @@ export class AdminProductsComponent {
     this.activeAddbutton = false;
     const product = this.products.find((elem: any) => elem.id === id);
     if (product) {
+      this.oldPic = product.picture;
       this.addProducts.patchValue({
         'name': product.name,
         'description':product.description,
