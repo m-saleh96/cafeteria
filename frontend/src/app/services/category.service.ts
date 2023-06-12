@@ -11,6 +11,9 @@ export class CategoryService {
   getCategories() {
     return this.http.get('http://localhost/cafeteria/backend/categories');
   }
+  getCategoryByID(id:number) {
+    return this.http.get(`http://localhost/cafeteria/backend/categories/${id}`);
+  }
 
   createCategory(formData:any) {
     return this.http.post('http://localhost/cafeteria/backend/categories' , formData );
