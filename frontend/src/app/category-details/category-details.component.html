@@ -1,1 +1,15 @@
-<p>category-details works!</p>
+<div class="container">
+  <div class="row">
+      <div class="my-4">
+        <p *ngIf="product.length===0">Products not found</p>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 bb text-center py-5" *ngFor="let product of product">
+          <img [src]="'http://localhost/cafeteria/backend/'+product?.picture" alt="" width="90%">
+          <div class="big text-center">
+              <h3 class="text-primary">{{product?.name}}</h3>
+              <p>{{product?.description}}</p>
+              <h4 class="text-danger">{{product?.price}}</h4>
+          </div>
+      </div>
+  </div>
+</div>
