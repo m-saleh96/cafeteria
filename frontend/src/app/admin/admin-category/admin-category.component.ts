@@ -82,6 +82,7 @@ export class AdminCategoryComponent {
   }
   updateform(id:number){
     this.categoryId=id;
+    window.scroll(0,0);
     this.activeForm = true;
     this.activeupdatebutton = true;
     this.activeAddbutton = false;

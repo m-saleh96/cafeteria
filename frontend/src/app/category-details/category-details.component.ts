@@ -15,7 +15,7 @@ export class CategoryDetailsComponent {
   constructor(private categoryService:CategoryService , private route:ActivatedRoute){}
   ngOnInit(){
     this.route.params.subscribe(params=>this.id=params['id'])
-    this.categoryService.getCategoryByID(this.id).subscribe((data:any)=>console.log(data));
+    this.categoryService.getCategoryByID(this.id).subscribe((data:any)=>this.product=data);
 
   }
 }
