@@ -18,13 +18,7 @@ export class CategoryDetailsComponent {
   counter:number = 0;
 requests:any;
   constructor(private categoryService:CategoryService , private route:ActivatedRoute, private requestService:RequestService,
-  private counterService:CounterService , private authService:AuthService , private router:Router ){
-    authService.currentUsers.subscribe((data:any)=>{
-      if (data ==null) {
-        this.router.navigate(['/login'])
-      }
-    })
-  }
+  private counterService:CounterService , private authService:AuthService , private router:Router ){}
   ngOnInit(){
     this.route.params.subscribe(params=>this.id=params['id'])
     this.categoryService.getCategoryByID(this.id).subscribe((data:any)=>this.product=data);
@@ -32,6 +26,11 @@ requests:any;
   }
 
   addToCart(id:number){
+    this.authService.currentUsers.subscribe((data:any)=>{
+      if (data ==null) {
+        this.router.navigate(['/login'])
+      }
+    })
     this.requests.push(id);
     this.requestService.getReq(this.requests);
     this.counterService.setCounter(++this.counter);

@@ -14,13 +14,7 @@ export class ProductCardComponent {
 counter:number = 0;
 requests:any;
 constructor(private route:Router , private counterService:CounterService , private requestService:RequestService ,
-  private authService:AuthService , private router:Router ){
-    authService.currentUsers.subscribe((data:any)=>{
-    if (data ==null) {
-      this.router.navigate(['/login'])
-    }
-  })
-}
+  private authService:AuthService , private router:Router ){}
 
 ngOnInit(){
   this.counterService.counterVal.subscribe(res=>this.counter=res);
@@ -32,6 +26,11 @@ redirectToProduct(id:number){
 }
 
 addToCart(id:number){
+  this.authService.currentUsers.subscribe((data:any)=>{
+  if (data ==null) {
+    this.router.navigate(['/login'])
+  }
+})
   this.requests.push(id);
   this.requestService.getReq(this.requests);
   this.counterService.setCounter(++this.counter);
