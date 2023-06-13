@@ -31,7 +31,7 @@ $validation = $validator->make($_POST + $_FILES, [
     'name'                  => 'required',
     'price'                 => 'required|numeric',
     'description'           => 'required',
-    'picture'               => 'required|uploaded_file:0,500K,png,jpeg',
+    'picture'               => 'required|uploaded_file:0,500000K,png,jpeg',
     'category_id'           => 'required|numeric',
 ]);
 $validation->validate();
@@ -79,13 +79,35 @@ else if ($url[0] == 'products' && isset($url[1]) && $_SERVER['REQUEST_METHOD'] =
     $id = $url[1];
     $products = [];
     $validator = new Validator;
-$validation = $validator->make($_POST + $_FILES, [
+    // var_dump($_POST['picture']);
+    // if(!empty($_POST['picture'])){
+    //     echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    // }
+    // exit;
+        // Check if the image is a file or a string representation
+    $pic_updated = false;
+if (isset($_FILES['picture'])) {
+    // echo "1";
+    $rules['picture'] = 'required|uploaded_file:0,500K,png,jpeg';
+    $pic_updated = true;
+} else if (!empty($_POST['picture'])) {
+    echo "2";
+    $pic_updated =false;
+    
+} else {
+    
+    // Image is not provided or empty
+    // Handle this case based on your application's requirements
+}
+// exit;
+$rules=[
     'name'                  => 'required',
     'price'                 => 'required|numeric',
     'description'           => 'required',
-    'picture'               => 'required|uploaded_file:0,500K,png,jpeg',
+    // 'picture'               => 'required|uploaded_file:0,500K,png,jpeg',
     'category_id'           => 'required|numeric',
-]);
+];
+$validation = $validator->make($_POST + $_FILES, $rules);
 $validation->validate();
 
 if ($validation->fails()) {
@@ -96,16 +118,30 @@ if ($validation->fails()) {
     $product_name = $_POST['name'];
     $product_price = $_POST['price'];
     $product_description = $_POST['description'];
-    $product_image = $_FILES['picture']['name'];
     $category_id = $_POST['category_id'];
-    $products = [
+    if($pic_updated){
+        $product_image = $_FILES['picture']['name'];
+        $products['picture'] = $product_image;
+        $products = [
             "name" => $product_name,
             "price" => $product_price,
             "description" => $product_description,
             "picture" => $product_image,
             "category_id" => $category_id
-    ];   
-    $products = $productsController->updateProduct($id,$products);
+    ];  
+    }else{
+        // $product_image = $_POST['picture'];
+        $products = [
+            "name" => $product_name,
+            "price" => $product_price,
+            "description" => $product_description,
+            // "picture" => $product_image,
+            "category_id" => $category_id
+    ]; 
+    }
+   
+   
+    $products = $productsController->updateProduct($id,$products,$pic_updated);
      echo json_encode($products);
 
 }

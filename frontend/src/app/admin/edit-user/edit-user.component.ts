@@ -27,10 +27,14 @@ userInfo!:any;
     console.log(typeof (this.userId));
 
     this.userService.getUser(this.userId).subscribe((res: any) =>{this.users = res;
-      console.log(Object.values(this.users));
+      this.addUsers.patchValue({
+        'name': res.Name,
+        'email':res.Email,
+        'room':res.Room_No,
+        'ext':res.Room_No,
+      });
 
-
-     } )
+    } )
 
 
   }

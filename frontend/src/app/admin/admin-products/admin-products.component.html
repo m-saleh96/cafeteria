@@ -21,7 +21,7 @@
   <div class="form-group my-2">
       <label>Price</label>
       <input [class.is-valid]="addProducts.get('price')?.errors ==null && addProducts.get('price')?.touched"
-      formControlName='price' type="number" class="form-control">
+      formControlName='price' type="number" class="form-control" min="0">
       <p *ngIf="addProducts.get('price')?.errors !=null && addProducts.get('price')?.touched"
       class="py-2 text-danger">inValid</p>
   </div>
@@ -36,7 +36,10 @@
     <label>photo</label>
     <input [class.is-valid]="addProducts.get('picture')?.errors ==null && addProducts.get('picture')?.touched"
     formControlName='picture' type="file" (change)="onFileSelected($event)" class="form-control">
+    <img class="img-fluid" [src]="'http://localhost/cafeteria/backend/'+oldPic" width="50px" *ngIf="oldPic">
   </div>
+
+
   <button [disabled]="addProducts.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeAddbutton">Add</button>
   <button [disabled]="addProducts.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeupdatebutton">update</button>
 </form>

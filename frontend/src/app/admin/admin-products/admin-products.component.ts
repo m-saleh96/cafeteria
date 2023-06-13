@@ -18,6 +18,7 @@ export class AdminProductsComponent {
   activeAddbutton:boolean = false;
   activeupdatebutton:boolean = false;
   productId!:number;
+  oldPic!:any;
 
   constructor(private productService:ProductsService , private categoryService:CategoryService){}
 
@@ -31,7 +32,7 @@ export class AdminProductsComponent {
       'description' :new FormControl(null , [Validators.required ]),
       'price' :new FormControl(null , [Validators.required ]),
       'category_id' :new FormControl(null , [Validators.required ]),
-      'picture' :new FormControl(null , [Validators.required ]),
+      'picture' :new FormControl(null),
     })
 
     ngOnInit(){
@@ -63,13 +64,17 @@ export class AdminProductsComponent {
         }
 
       } else if(this.activeupdatebutton){
-        if (this.addProducts.valid && this.selectedFile) {
+        if (this.addProducts.valid ) {
           const formData = new FormData();
           formData.append('name', this.addProducts.get('name')!.value);
           formData.append('description', this.addProducts.get('description')!.value);
           formData.append('price', this.addProducts.get('price')!.value);
           formData.append('category_id', this.addProducts.get('category_id')!.value);
+          if(this.selectedFile){
           formData.append('picture', this.selectedFile);
+          }else{
+            formData.append('picture', this.oldPic);
+          }
 
         this.productService.updateProduct(this.productId ,formData).subscribe((data:any)=>{
           if (data) {
@@ -103,12 +108,14 @@ export class AdminProductsComponent {
     this.activeupdatebutton = false;
   }
   updateform(id:number){
+    window.scroll(0,0);
     this.productId=id;
     this.activeForm = true;
     this.activeupdatebutton = true;
     this.activeAddbutton = false;
     const product = this.products.find((elem: any) => elem.id === id);
     if (product) {
+      this.oldPic = product.picture;
       this.addProducts.patchValue({
         'name': product.name,
         'description':product.description,
