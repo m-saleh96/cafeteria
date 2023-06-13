@@ -26,11 +26,15 @@ redirectToProduct(id:number){
 }
 
 addToCart(id:number){
-  this.authService.currentUsers.subscribe((data:any)=>{
-  if (data ==null) {
-    this.router.navigate(['/login'])
+  // this.authService.currentUsers.subscribe((data:any)=>{
+  // // if (data ==null) {
+  // //   this.router.navigate(['/login'])
+  // // }
+  // })
+
+  if(this.requests.includes(id)){
+    return;
   }
-})
   this.requests.push(id);
   this.requestService.getReq(this.requests);
   this.counterService.setCounter(++this.counter);

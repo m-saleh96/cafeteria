@@ -34,7 +34,7 @@ export class RegisterComponent {
 
     if (this.registerForm.valid && this.selectedFile) {
       const formData = new FormData();
-      formData.append('name', this.registerForm.get('name')!.value);
+      formData.append('Name', this.registerForm.get('Name')!.value);
       formData.append('Email', this.registerForm.get('Email')!.value);
       formData.append('Password', this.registerForm.get('Password')!.value);
       formData.append('Room_No', this.registerForm.get('Room_No')!.value);
