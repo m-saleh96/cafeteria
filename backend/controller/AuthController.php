@@ -22,6 +22,9 @@ public function login($request_Email,$request_password){
         try{
         $auth=new usermodel();
         $user= $auth->getuser($request_Email,$request_password);
+        if($user){
+
+        
         $payload = [
             'username' => $user->Name,
             'email' => $user->Email,
@@ -64,7 +67,10 @@ public function login($request_Email,$request_password){
         // return $this->validatio_token($token);
         return [$token,$user] ;  
 
-
+    }
+    else{
+        return "email or password is error";
+    }
 }catch(Exception $e){
 //     return ['code'=>-1, "data"=>"no data avilable", 'msg'=>(string)$e];
 
@@ -100,35 +106,49 @@ EOD;
 
 
 
+
 public function sendEmail($email){
     //  $mail->setFrom('gergesvictor512@gmail.com', 'gerges');
     // $mail->addAddress('gergesvicto512@gmail.com', 'mina');
+    $validator = new Validator;
+    $validation = $validator->validate(['email'=>$email], [
+        'email' => 'required|email'
+    ]);
 
-    $mail= connectToMailer();
-    $mail->setFrom('semonsaleeb@gmail.com', 'semon');    
-    $mail->addAddress('semonsaleeb@gmail.com', 'semon');    
-    
-    // $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->CharSet="UTF-8";
-    $mail->Subject = 'cafateria';
-    $mail->Body    = 'php multer';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    if ($validation->fails()) {
+        $errors = $validation->errors();
+        return $errors->firstOfAll();
+    } else {
+        $mail= connectToMailer();
+        $mail->setFrom($email, 'semon');    
+        $mail->addAddress($email, 'semon');    
+        
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->CharSet="UTF-8";
+        $mail->Subject = 'cafateria';
+        $mail->Body    = '<h1> to change password enter this number</h1><br> <strong>123456789</strong>';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    }
+
+   
     
     
     try{ $mail->send();
-    echo 'Message has been sent';
+    return 'Message has been sent';
     } catch (Exception $e) {
-    echo " mail->ErrorInfo";
+    return "error happened";
     // echo " {$mail->ErrorInfo}";
     }
     
 }
 
 
-public function resetPassword($id,$newPassword){
+
+
+public function resetPassword($email,$newPassword){
     $validator = new Validator;
-    $validation = $validator->validate(['id'=>$id,'password'=> $newPassword], [
-        'id' => 'required|numeric',
+    $validation = $validator->validate(['email'=>$email,'password'=> $newPassword], [
+        'email' => 'required|email',
         'password' => 'required|min:8'
     ]);
 
@@ -139,8 +159,9 @@ public function resetPassword($id,$newPassword){
         $auth=new usermodel();
         // $cat_name = $newPassword;
         $newPassword = ["Password" => $newPassword];
-        $user= $auth->updatepassword($id,$newPassword);
-
+        $user= $auth->updatepassword($email,$newPassword);
+        return $user;
+        // return "dd";
     }
 
 }
