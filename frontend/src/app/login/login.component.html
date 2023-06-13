@@ -8,16 +8,16 @@
       <form class="w-75 m-auto py-5"  [formGroup]="loginForm" (ngSubmit)="getLoginInfo(loginForm)">
         <div class="form-group my-2">
             <label>Email</label>
-            <input [class.is-valid]="loginForm.get('email')?.errors ==null && loginForm.get('email')?.touched"
-            formControlName='email' type="text" class="form-control">
-            <p *ngIf="loginForm.get('email')?.errors !=null && loginForm.get('email')?.touched"
+            <input [class.is-valid]="loginForm.get('Email')?.errors ==null && loginForm.get('Email')?.touched"
+            formControlName='Email' type="text" class="form-control">
+            <p *ngIf="loginForm.get('Email')?.errors !=null && loginForm.get('Email')?.touched"
             class="py-2 text-danger">email inValid</p>
         </div>
         <div class="form-group my-2">
             <label>Password</label>
-            <input [class.is-valid]="loginForm.get('password')?.errors ==null && loginForm.get('password')?.touched"
-            formControlName='password' type="password" class="form-control">
-            <p *ngIf="loginForm.get('password')?.errors !=null && loginForm.get('password')?.touched"
+            <input [class.is-valid]="loginForm.get('Password')?.errors ==null && loginForm.get('Password')?.touched"
+            formControlName='Password' type="password" class="form-control">
+            <p *ngIf="loginForm.get('Password')?.errors !=null && loginForm.get('Password')?.touched"
             class="py-2 text-danger">password inValid</p>
         </div>
         <button [disabled]="loginForm.invalid" type="submit" class="btn btn-danger text-white my-2">login</button>

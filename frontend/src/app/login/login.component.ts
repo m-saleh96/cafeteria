@@ -13,12 +13,14 @@ export class LoginComponent {
   errorMessage:any;
   flag:boolean =false;
   loginForm:FormGroup = new FormGroup({
-    'email':new FormControl(null , [Validators.email , Validators.required]),
-    'password':new FormControl(null , [Validators.required])
+    'Email':new FormControl(null , [Validators.email , Validators.required]),
+    'Password':new FormControl(null , [Validators.required])
   });
 
   getLoginInfo(loginForm:any)
   {
+    console.log(loginForm.value);
+
     if(loginForm.valid == true){
       this.authService.login(loginForm.value).subscribe((data)=>{
         if (data.status === 'success') {
