@@ -2,23 +2,49 @@
 <div class="container-fluid d-flex vh-100 align-items-center justify-content-center">
   <div class="col-md-4 mx-auto shadow">
     <div class="card bg-white p-5">
-      <form>
-        <h3 class="mb-5">Register</h3>
-        <div class="row mb-3">
-          <input type="text" placeholder="Username" class="py-2">
+      <form class="w-75 m-auto py-5"  [formGroup]="registerForm" (ngSubmit)="getRegisterInfo(registerForm)">
+        <div class="form-group my-2">
+            <label>Name</label>
+            <input [class.is-valid]="registerForm.get('Name')?.errors ==null && registerForm.get('Name')?.touched"
+            formControlName='Name' type="text" class="form-control">
+            <p *ngIf="registerForm.get('Name')?.errors !=null && registerForm.get('Name')?.touched"
+            class="py-2 text-danger">Name inValid</p>
         </div>
-        <div class="row mb-3">
-          <input type="email" placeholder="Email" class="py-2">
+        <div class="form-group my-2">
+            <label>Email</label>
+            <input [class.is-valid]="registerForm.get('Email')?.errors ==null && registerForm.get('Email')?.touched"
+            formControlName='Email' type="text" class="form-control">
+            <p *ngIf="registerForm.get('Email')?.errors !=null && registerForm.get('Email')?.touched"
+            class="py-2 text-danger">email inValid</p>
         </div>
-
-        <div class="row mb-3">
-          <input type="password" placeholder="Password" class="py-2">
+        <div class="form-group my-2">
+            <label>Password</label>
+            <input [class.is-valid]="registerForm.get('Password')?.errors ==null && registerForm.get('Password')?.touched"
+            formControlName='Password' type="password" class="form-control">
+            <p *ngIf="registerForm.get('Password')?.errors !=null && registerForm.get('Password')?.touched"
+            class="py-2 text-danger">password inValid</p>
         </div>
-        <div class="row mb-3">
-          <input type="password" placeholder="Comfirm Password" class="py-2">
+        <div class="form-group my-2">
+          <label>Room_No</label>
+          <input [class.is-valid]="registerForm.get('Room_No')?.errors ==null && registerForm.get('Room_No')?.touched"
+          formControlName='Room_No' type="number" class="form-control" min="1">
+          <p *ngIf="registerForm.get('Room_No')?.errors !=null && registerForm.get('Room_No')?.touched"
+          class="py-2 text-danger">Room_No inValid</p>
         </div>
-        <button type="submit" class="btn px-4 py-2">Sign Up</button>
-      </form>
+        <div class="form-group my-2">
+          <label>Ext</label>
+          <input [class.is-valid]="registerForm.get('Name')?.errors ==null && registerForm.get('Ext')?.touched"
+          formControlName='Ext' type="text" class="form-control">
+          <p *ngIf="registerForm.get('Ext')?.errors !=null && registerForm.get('Ext')?.touched"
+          class="py-2 text-danger">Ext inValid</p>
+        </div>
+        <div class="form-group my-2">
+          <label>Picture</label>
+          <input [class.is-valid]="registerForm.get('picture')?.errors ==null && registerForm.get('picture')?.touched"
+          formControlName='picture' type="file" (change)="onFileSelected($event)" class="form-control">
+        </div>
+        <button [disabled]="registerForm.invalid" type="submit" class="btn btn-danger text-white my-2">register</button>
+    </form>
     </div>
   </div>
 </div>
