@@ -1,15 +1,27 @@
-<div class="container">
-  <div class="row">
-      <div class="my-4">
-        <p *ngIf="product.length===0">Products not found</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 bb text-center py-5" *ngFor="let product of product">
-          <img [src]="'http://localhost/cafeteria/backend/'+product?.picture" alt="" width="90%">
-          <div class="big text-center">
-              <h3 class="text-primary">{{product?.name}}</h3>
-              <p>{{product?.description}}</p>
-              <h4 class="text-danger">{{product?.price}}</h4>
+<div class="main">
+  <div class="container">
+    <div class="row">
+        <div class="my-4">
+          <p *ngIf="product.length===0">Products not found</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 bb py-5" *ngFor="let product of product">
+          <div class="card shadow py-3 px-2">
+            <img [src]="'http://localhost/cafeteria/backend/'+product?.picture" class="card-img-top" alt="..." height="250px" routerLink="/product-details/{{product.id}}">
+            <div class="card-body d-flex flex-row justify-content-between">
+              <div class="col-8">
+                <h4 class="card-title text-white">{{product?.name}}</h4>
+                <p class="card-text text-white">{{product?.description}}</p>
+                <p class="card-text text-white">{{product?.price}}</p>
+              </div>
+              <div class="col-4 d-flex justify-content-end align-items-end">
+                <a class="btn px-3">Add</a>
+              </div>
+            </div>
+                <div class="vote"></div>
           </div>
-      </div>
+
+        </div>
+    </div>
   </div>
+
 </div>

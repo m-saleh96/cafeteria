@@ -18,4 +18,6 @@ export class CategoryDetailsComponent {
     this.categoryService.getCategoryByID(this.id).subscribe((data:any)=>this.product=data);
 
   }
+
+  
 }
