@@ -16,7 +16,7 @@ export class CounterService {
 
   // for orders
   private orderCounter = new BehaviorSubject(0);
-  orderValCounter = this.orderCounter.asObservable();
+  counterValOrder = this.orderCounter.asObservable();
 
   setCounterOrder(newCounterVal:number){
     this.orderCounter.next(newCounterVal);
