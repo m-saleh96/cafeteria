@@ -14,11 +14,11 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { CartComponent } from './cart/cart.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 const routes: Routes = [
-  {
-    path: 'editUser/:id',
-    component: EditUserComponent
-  },
+
   {
     path:'',
     redirectTo : 'home',
@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path:'category',
     component : CategoryListComponent
+  },
+  {
+    path: 'editUser/:id',
+    component: EditUserComponent
   },
   {
     path:'category-details/:id',
@@ -73,7 +77,20 @@ const routes: Routes = [
         component : AdminCategoryComponent
       },
     ]
-  }
+  },
+  {
+    path:'cart',
+    component : CartComponent
+  },
+  {
+    path:'my-orders',
+    component : MyOrdersComponent
+  },
+  {
+    path:'**',
+    component : NotfoundComponent
+  },
+
 
 ];
 
