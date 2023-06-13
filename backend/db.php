@@ -68,5 +68,38 @@ CREATE TABLE IF NOT EXISTS order_items ( id INT(11) UNSIGNED AUTO_INCREMENT PRIM
     echo "Connection failed: " . $e->getMessage();
 }
 
+
+
+
+
+
+//create category table
+try {
+    $conn = new PDO("mysql:host=localhost;dbname=cafeteria", "root", "");
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql = "CREATE TABLE IF NOT EXISTS users(
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(30) NOT NULL,
+    Email VARCHAR(255) NOT NULL Unique,
+    Password VARCHAR(50) NOT NULL,
+    Room_No	INT(11) NOT NULL,
+    Ext INT(11) NOT NULL,
+    Is_admin BOOLEAN NOT NULL,
+    picture VARCHAR(255) NOT NULL)";
+
+
+$conn->exec($sql);
+} catch(PDOException $e) {
+echo "Error creating table: " . $e->getMessage();
+}
+
+
+
+
+
+
+
 $conn = null;
 ?>

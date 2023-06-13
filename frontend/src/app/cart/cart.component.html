@@ -1,0 +1,23 @@
+<table class="table text-white w-75 mx-auto mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of products">
+      <td><img [src]="'http://localhost/cafeteria/backend/'+prod.picture" alt=""></td>
+      <td>{{prod.name}}</td>
+      <td>{{prod.price*prod.quantity}}</td>
+      <td><button (click)="decreese(prod.id)" class="btn btn-primary mx-2">-</button> {{prod.quantity}} <button (click)="increese(prod.id)" class="btn btn-success mx-2">+</button></td>
+      <td><button (click)="removeProduct(prod.id)" class="btn btn-danger">remove</button></td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <button class="btn btn-success">Confirm Order</button>
+</div>
