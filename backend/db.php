@@ -56,7 +56,16 @@ CREATE TABLE IF NOT EXISTS orders (
 
     // Create the "order_items" table
     $sqlOrderItems = "
-CREATE TABLE IF NOT EXISTS order_items ( id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, order_id INT(11) NOT NULL, product_id INT(11) NOT NULL, quantity INT(11) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP );
+    CREATE TABLE IF NOT EXISTS order_items (
+        id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        order_id INT(11) UNSIGNED NOT NULL,
+        product_id INT(11) NOT NULL,
+        quantity INT(11) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+        foreign key (order_id)  references orders(id) on delete cascade
+        );
+    
 ";
 
     // Execute the queries to create the tables
