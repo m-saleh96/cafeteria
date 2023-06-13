@@ -71,14 +71,17 @@ if ($url[0] == 'orders' && $_SERVER['REQUEST_METHOD'] == 'GET') {
 } else if ($url[0] == 'orders' && isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Access-Control-Allow-Methods: POST');
     $id = $url[1];
+    $orders = file_get_contents('php://input');
+    $orders = json_decode($orders, true);
     $validator = new Validator;
-    $validation = $validator->make($_POST, [
+    $orders['status'] = 'processing';
+    $validation = $validator->make($orders, [
         'user_id' => 'required',
-        'product_id' => 'required',
-        'quantity' => 'required',
+        'products' => 'required|array|min:1',
+        'products.*.product_id' => 'required',
+        'products.*.quantity' => 'required',
         'total_price' => 'required',
-        'status' => 'required',
-        'room_no' => 'required',
+        'room_no' => 'required'
     ]);
     $validation->validate();
 
@@ -87,16 +90,21 @@ if ($url[0] == 'orders' && $_SERVER['REQUEST_METHOD'] == 'GET') {
         $errors = $validation->errors();
         echo json_encode($errors->firstOfAll());
     } else {
-        $orders = file_get_contents('php://input');
-        $orders = json_decode($orders, true);
-        $orders = $ordersController->updateOrder($id, $orders);
+        try {
+            $orders = $ordersController->updateOrder($id, $orders);
         if ($orders == false) {
+            echo "Aa";
             http_response_code(404);
             echo json_encode(["error" => "No order found with this id"]);
             exit;
         }
         echo json_encode("orders updated successfully");
 
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo json_encode(["error" => "Database error: " . $e->getMessage()]);
+        }
+       
     }
 } else if ($url[0] == "order" && $_SERVER['REQUEST_METHOD'] == 'DELETE' && isset($url[1])) {
     header('Access-Control-Allow-Methods: DELETE');

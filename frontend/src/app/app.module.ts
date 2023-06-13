@@ -28,6 +28,9 @@ import { FourthHomeSectionComponent } from './fourth-home-section/fourth-home-se
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { CartComponent } from './cart/cart.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 @NgModule({
@@ -56,7 +59,10 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 
     CategoryListComponent,
     CategoryCardComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    CartComponent,
+    NotfoundComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,
