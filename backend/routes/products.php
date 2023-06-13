@@ -22,6 +22,8 @@ if($url[0] == 'products' && $_SERVER['REQUEST_METHOD'] == 'GET') {
     $products = $productsController->getAllProducts();
     echo json_encode($products);
 }
+
+
 else if($url[0] == 'products' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Access-Control-Allow-Methods: POST');   
 $validator = new Validator;
