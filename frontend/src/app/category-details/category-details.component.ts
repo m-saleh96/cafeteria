@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
 
 import { Product } from '../interfaces/product';
 import { CategoryService } from '../services/category.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-category-details',
@@ -16,7 +17,14 @@ export class CategoryDetailsComponent {
   product:Product[]=[];
   counter:number = 0;
 requests:any;
-  constructor(private categoryService:CategoryService , private route:ActivatedRoute, private requestService:RequestService, private counterService:CounterService  ){}
+  constructor(private categoryService:CategoryService , private route:ActivatedRoute, private requestService:RequestService,
+  private counterService:CounterService , private authService:AuthService , private router:Router ){
+    authService.currentUsers.subscribe((data:any)=>{
+      if (data ==null) {
+        this.router.navigate(['/login'])
+      }
+    })
+  }
   ngOnInit(){
     this.route.params.subscribe(params=>this.id=params['id'])
     this.categoryService.getCategoryByID(this.id).subscribe((data:any)=>this.product=data);
