@@ -13,12 +13,12 @@ export class NavbarComponent {
   isAdmin!:boolean ;
   constructor(private counterService:CounterService , private authService:AuthService){
     authService.currentUsers.subscribe((data:any)=>{
-      if (data !=null) {
-        this.isLogin = true;
-        this.isAdmin=data.isAdmin
-      } else {
-        this.isLogin = false;
-      }
+      // if (data !=null) {
+      //   this.isLogin = true;
+      //   this.isAdmin=data.isAdmin
+      // } else {
+      //   this.isLogin = false;
+      // }
     })
 
   }
