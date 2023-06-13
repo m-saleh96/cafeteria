@@ -1,3 +1,19 @@
 .card{
   background-color: var(--light-gray);
 }
+.card:hover{
+  background-color: var(--light-orange);
+  transition: 0.3s;
+}
+.btn{
+  background-color: var(--light-beige);
+  color: black;
+}
+.btn:hover{
+  background-color: var(--light-beige);
+  box-shadow: 0px 0px 8px var(--light-beige);
+  color: white;
+}
+img{
+  cursor: pointer;
+}

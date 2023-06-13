@@ -5,19 +5,19 @@ require_once('db.php');
 class CategoryController {
     public function getAllCategories() {
         global $db;
-        $products = $db->rows("SELECT * FROM category");
-        return $products;
+        $categories = $db->rows("SELECT * FROM category");
+        return $categories;
     }
 
     public function createCategory($data) {
         global $db;        
-       return $products = $db->insert("category", $data);
+       return $categories = $db->insert("category", $data);
         // return $db->rows("SELECT * FROM category WHERE id = ?", [$products]);
     }
 
     public function getCategory($id) {
         global $db;
-        $products = $db->row("SELECT * FROM category WHERE id = ?", [$id]);
+        $products = $db->rows("SELECT * FROM `products` WHERE `category_id` = ? ", [$id]);
         return $products;
     }
     public function updateCategory($id, $data) {
@@ -30,8 +30,8 @@ class CategoryController {
     public function deleteCategory($id){
     global $db;
     $id = ['id'=>$id];
-    $products = $db->delete("category",$id);
-    return $products;
+    $categories = $db->delete("category",$id);
+    return $categories;
     }
 }
 

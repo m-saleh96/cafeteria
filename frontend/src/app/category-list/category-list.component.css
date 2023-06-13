@@ -1,0 +1,21 @@
+.back{
+  border: 1px solid #000000;
+  /* background-color: black; */
+  background-position: center;
+  background-size: cover;
+  border-radius: 6px;
+  color: white;
+  height: 190px;
+
+}
+.row{
+  justify-content: center;
+}
+
+.container{
+  min-height: 90vh;
+}
+.main{
+  background-image: url(../../assets/images/bgg6.jpg);
+  background-size: cover;
+}

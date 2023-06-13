@@ -1,0 +1,42 @@
+img{
+  height: 330px;
+}
+.big{
+  box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2), 0 6px 20px 0 rgba(0.19, 0.19, 0019, 0.19);
+  border-radius:6px ;
+  text-align: center;
+}
+p{
+  width: 100%;
+}
+.name{
+  font-size: 18px;
+
+}
+.big{
+  height: 240px;
+  margin: 10px;
+}
+.card{
+  background-color: var(--light-gray);
+}
+.card:hover{
+  background-color: var(--light-orange);
+  transition: 0.3s;
+}
+.btn{
+  background-color: var(--light-beige);
+  color: black;
+}
+.btn:hover{
+  background-color: var(--light-beige);
+  box-shadow: 0px 0px 8px var(--light-beige);
+  color: white;
+}
+img{
+  cursor: pointer;
+}
+.main{
+  background-color: var(--main-color);
+  height: 90vh;
+}

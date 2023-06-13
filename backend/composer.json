@@ -1,6 +1,9 @@
 {
     "require": {
         "dcblogdev/pdo-wrapper": "^2.0",
-        "rakit/validation": "^1.4"
+        "rakit/validation": "^1.4",
+        "paragonie/sodium_compat": "^1.20",
+        "firebase/php-jwt": "^6.5",
+        "phpmailer/phpmailer": "^6.8"
     }
 }

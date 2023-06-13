@@ -1,17 +1,22 @@
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllUsersComponent } from './all-users/all-users.component';
-import { AddUserComponent } from './add-user/add-user.component';
+import { AllUsersComponent } from './admin/all-users/all-users.component';
+import { AddUserComponent } from './admin/add-user/add-user.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { WelcomeComponent } from './admin/welcome/welcome.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditUserComponent } from './admin/edit-user/edit-user.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { CartComponent } from './cart/cart.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 const routes: Routes = [
   {
     path: 'editUser/:id',
@@ -25,6 +30,14 @@ const routes: Routes = [
   {
     path:'home',
     component : HomeComponent
+  },
+  {
+    path:'category',
+    component : CategoryListComponent
+  },
+  {
+    path:'category-details/:id',
+    component : CategoryDetailsComponent
   },
   {
     path: 'register',
@@ -63,7 +76,20 @@ const routes: Routes = [
         component : AdminCategoryComponent
       },
     ]
-  }
+  },
+  {
+    path:'cart',
+    component : CartComponent
+  },
+  {
+    path:'my-orders',
+    component : MyOrdersComponent
+  },
+  {
+    path:'**',
+    component : NotfoundComponent
+  },
+
 
 ];
 
