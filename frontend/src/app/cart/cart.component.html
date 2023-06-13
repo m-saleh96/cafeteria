@@ -1,23 +1,31 @@
-<table class="table text-white w-75 mx-auto mt-5">
-  <thead>
-    <tr>
-      <th scope="col">Product</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">remove</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let prod of products">
-      <td><img [src]="'http://localhost/cafeteria/backend/'+prod.picture" alt=""></td>
-      <td>{{prod.name}}</td>
-      <td>{{prod.price*prod.quantity}}</td>
-      <td><button (click)="decreese(prod.id)" class="btn btn-primary mx-2">-</button> {{prod.quantity}} <button (click)="increese(prod.id)" class="btn btn-success mx-2">+</button></td>
-      <td><button (click)="removeProduct(prod.id)" class="btn btn-danger">remove</button></td>
-    </tr>
-  </tbody>
-</table>
-<div>
-  <button class="btn btn-success">Confirm Order</button>
+<div class="container">
+  <table class="table text-white w-75 mx-auto mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products">
+        <td><img [src]="'http://localhost/cafeteria/backend/'+prod.picture" alt="" width="50px"></td>
+        <td>{{prod.name}}</td>
+        <td>{{prod.totalPrice}}</td>
+        <td><button (click)="decreese(prod.id)" class="btn btn-primary mx-2">-</button> {{prod.quantity}} <button (click)="increese(prod.id)" class="btn btn-success mx-2">+</button></td>
+        <td><button (click)="removeProduct(prod.id)" class="btn btn-danger">remove</button></td>
+      </tr>
+      <tr>
+        <td class="text-center bg-info text-white" colspan="2">Total Price</td>
+        <td colspan="3">{{orderPrice}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button class="btn btn-success" (click)="sendOrder()">Confirm Order</button>
+  </div>
 </div>
+
