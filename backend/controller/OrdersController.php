@@ -47,7 +47,8 @@ class OrdersController {
         o.room_no,o.status,o.created_at
         FROM orders AS o
         JOIN order_items AS oi ON o.id = oi.order_id
-        JOIN products AS p ON oi.product_id = p.id Where o.id = $id";
+        
+        JOIN products AS p ON oi.product_id = p.id Where o.user_id = $id";
         $orders = $db->rows($query);
         return $orders;
     }
