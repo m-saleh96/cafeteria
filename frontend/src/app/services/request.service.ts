@@ -11,5 +11,8 @@ export class RequestService {
   getReq(val:any){
     this.requests.next(val);
   }
+  setReq(val:any){
+    this.requests.next(val);
+  }
 
 }
