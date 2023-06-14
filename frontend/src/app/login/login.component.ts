@@ -23,8 +23,10 @@ export class LoginComponent {
 
     if(loginForm.valid == true){
       this.authService.login(loginForm.value).subscribe((data)=>{
+        console.log(data);
+
         if (data !== 'email or password is error') {
-          this.authService.saveCurrentUser(data.data)
+          this.authService.saveCurrentUser(data)
           this.router.navigate(['/home'])
         }
         else{
