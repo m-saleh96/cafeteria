@@ -6,6 +6,7 @@ import { ProductsService } from '../services/products.service';
 import { Product } from '../interfaces/product';
 import { Order } from '../interfaces/order';
 import { OrderService } from '../services/order.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +19,8 @@ export class CartComponent {
   productsIDs:any=[];
   products:any[]=[];
   orderPrice:number=0;
-
+  userId!:number;
+  room_no!:number;
   order: Order = {
     user_id: 1,
     products: [],
@@ -26,13 +28,16 @@ export class CartComponent {
     room_no: 1,
   };
   constructor(private route:Router , private counterService:CounterService , private requestService:RequestService ,
-    private productService:ProductsService , private orderService:OrderService){}
+    private productService:ProductsService , private orderService:OrderService , private authService:AuthService){}
 
   ngOnInit(){
     this.counterService.counterVal.subscribe(res=>this.counter = res);
     this.counterService.counterValOrder.subscribe(res=>this.counterValOrder = res);
     this.requestService.orderRequests.subscribe(res=>this.productsIDs=res);
-
+    this.authService.currentUsers.subscribe((data:any)=>{
+      this.userId=data[1].id
+      this.room_no=data[1].Room_No
+    })
     this.productsIDs.forEach((elem:number) => {
       this.productService.getProduct(elem).subscribe((res:any) => {
         this.order["total_price"]+=res.price;
@@ -97,7 +102,9 @@ export class CartComponent {
     const product = this.products.map((product) => {
       return { product_id: product.id, quantity: product.quantity };
     });
-    this.order["products"]=product
+    this.order["products"]=product;
+    this.order["user_id"]=this.userId;
+    this.order["room_no"]=this.room_no;
     this.orderService.sendOrder(this.order).subscribe((data:any)=>{
       if (data === "order created successfully") {
         alert("confirmed");

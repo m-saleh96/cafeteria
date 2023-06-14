@@ -1,1 +1,30 @@
-<p>my-orders works!</p>
+<div class="container mt-5">
+  <table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th scope="col">photo</th>
+            <th scope="col">Name</th>
+            <th scope="col">price</th>
+            <th scope="col">quantity</th>
+            <th scope="col">total Price</th>
+            <th scope="col">Room No</th>
+            <th scope="col">status</th>
+            <th scope="col">Created at</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of orders;">
+            <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/'+row.picture" width="50px"></td>
+            <td>{{row.name}}</td>
+            <td>{{row.price}}</td>
+            <td>{{row.quantity}}</td>
+            <td>{{row.price * row.quantity}}</td>
+            <td>{{row.room_no}}</td>
+            <td>{{row.status}}</td>
+            <td>{{row.created_at}}</td>
+        </tr>
+
+    </tbody>
+  </table>
+
+</div>
