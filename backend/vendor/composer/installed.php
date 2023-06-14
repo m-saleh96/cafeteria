@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'firebase/php-jwt' => array(
-            'pretty_version' => 'v6.5.0',
-            'version' => '6.5.0.0',
-            'reference' => 'e94e7353302b0c11ec3cfff7180cd0b1743975d2',
+            'pretty_version' => 'v6.6.0',
+            'version' => '6.6.0.0',
+            'reference' => '5a9cf79b4a2eb347230384648cc7b0d68cd97faa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../firebase/php-jwt',
             'aliases' => array(),

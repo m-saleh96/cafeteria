@@ -35,6 +35,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { CheeckNumbEmailComponent } from './cheeck-numb-email/cheeck-numb-email.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ChecksComponent } from './admin/checks/checks.component';
 
 
 @NgModule({
@@ -56,11 +57,9 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     EditUserComponent,
     RegisterComponent,
     LoginComponent,
-
     ThirdHomeSectionComponent,
     FooterComponent,
     FourthHomeSectionComponent,
-
     CategoryListComponent,
     CategoryCardComponent,
     CategoryDetailsComponent,
@@ -70,7 +69,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     ProfileComponent,
     ForgetPasswordComponent,
     CheeckNumbEmailComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    ChecksComponent
   ],
   imports: [
     BrowserModule,

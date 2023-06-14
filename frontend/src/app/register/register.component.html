@@ -26,7 +26,7 @@
             <input [class.is-valid]="registerForm.get('Password')?.errors ==null && registerForm.get('Password')?.touched"
             formControlName='Password' type="password" class="form-control">
             <p *ngIf="registerForm.get('Password')?.errors !=null && registerForm.get('Password')?.touched"
-            class="py-2 text-danger">password inValid</p>
+            class="py-2 text-danger">password inValid min 8 carc</p>
         </div>
         <div class="form-group my-2">
           <label>Room_No</label>
