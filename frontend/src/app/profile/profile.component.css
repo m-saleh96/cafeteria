@@ -1,5 +1,7 @@
 .main{
-  background-color: var(--main-color);
+  /* background-color: var(--main-color); */
+  background-color: var(--light-gray);
+  background-size: cover;
   height: 90vh;
   color: white;
 }
