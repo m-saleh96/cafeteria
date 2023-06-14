@@ -19,12 +19,8 @@ export class LoginComponent {
 
   getLoginInfo(loginForm:any)
   {
-    console.log(loginForm.value);
-
     if(loginForm.valid == true){
       this.authService.login(loginForm.value).subscribe((data)=>{
-        console.log(data);
-
         if (data !== 'email or password is error') {
           this.authService.saveCurrentUser(data)
           this.router.navigate(['/home'])
