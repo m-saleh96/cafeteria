@@ -28,7 +28,7 @@ public function login($request_Email,$request_password){
         $payload = [
             'username' => $user->Name,
             'email' => $user->Email,
-            'admin' => $user->IsAdmin,
+            'admin' => $user->Is_admin,
         ];
         $privateKey = <<<EOD
         -----BEGIN RSA PRIVATE KEY-----
