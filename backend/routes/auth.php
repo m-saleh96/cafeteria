@@ -24,8 +24,8 @@ if($url[0] == 'login' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST'
     header('Access-Control-Allow-Methods: POST');   
     $respones = file_get_contents('php://input');
     $respones= json_decode($respones, true);
-    $respones = $AuthController->login($respones['Email'],$respones['Password']);
-    // echo json_encode([$_POST['Email'],$_POST['Password']]);
+    $respones = $AuthController->login($respones['Email'],$respones['password'] );
+    // echo json_encode($respones['Email'].$respones['password'] );
     echo json_encode($respones);
 }
 
