@@ -1,6 +1,12 @@
 select{
     width: 10rem;
 }
-input{
+label{
     margin: 2rem;
+}
+button{
+    margin-left: 15rem;
+}
+table{
+    margin-top: 3rem;
 }
