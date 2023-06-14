@@ -18,6 +18,8 @@ import { CartComponent } from './cart/cart.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ChecksComponent } from './admin/checks/checks.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
     path: 'editUser/:id',
@@ -54,6 +56,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AuthGuard],
     component:DashboardComponent,
     children:[
       {
@@ -85,6 +88,10 @@ const routes: Routes = [
   {
     path:'cart',
     component : CartComponent
+  },
+  {
+    path:'profile',
+    component : ProfileComponent
   },
   {
     path:'my-orders',

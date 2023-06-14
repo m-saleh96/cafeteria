@@ -32,6 +32,7 @@ import { CartComponent } from './cart/cart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ChecksComponent } from './admin/checks/checks.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { ChecksComponent } from './admin/checks/checks.component';
     CartComponent,
     NotfoundComponent,
     MyOrdersComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
