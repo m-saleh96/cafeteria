@@ -15,7 +15,7 @@ class usersController {
         return $db->rows("SELECT * FROM users WHERE id = ?", [$users]);            
         } catch (Exception $e) {
             //throw $th;
-            return "error duplicated email plz login or reset password";
+            return "error". $e->getMessage();
         }
 
     }
