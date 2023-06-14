@@ -28,7 +28,7 @@ public function login($request_Email,$request_password){
         $payload = [
             'username' => $user->Name,
             'email' => $user->Email,
-            'admin' => false,
+            'admin' => $user->IsAdmin,
         ];
         $privateKey = <<<EOD
         -----BEGIN RSA PRIVATE KEY-----
@@ -119,26 +119,36 @@ public function sendEmail($email){
         $errors = $validation->errors();
         return $errors->firstOfAll();
     } else {
-        $mail= connectToMailer();
-        $mail->setFrom($email, 'semon');    
-        $mail->addAddress($email, 'semon');    
-        
-        $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->CharSet="UTF-8";
-        $mail->Subject = 'cafateria';
-        $mail->Body    = '<h1> to change password enter this number</h1><br> <strong>123456789</strong>';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $auth=new usermodel();
+        $user= $auth->CheekEmail($email);
+        if($user){
+            return "userfound";
+        }
+        else{return  "user no found";}
+//         $mail= connectToMailer();
+
+
+//  $mail->setFrom('kirolosvictor58@gmail.com', 'gerges');    
+//  $mail->addAddress('kirolosvictor58@gmail.com', 'user');    
+//         // $mail->setFrom('kirolosvictor58@gmail.com', 'gerges');    
+//         // $mail->addAddress($email, 'semon');   
+//         $mail->isHTML(true);                                  //Set email format to HTML
+//         $mail->CharSet="UTF-8";
+//         $mail->Subject = 'reset password';
+//         $mail->Body    = '<h1> to change password enter this number</h1><br> <strong >'.rand(100000,999999).'</strong>';
+//         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+//         try{ $mail->send();
+//         return 'Message has been sent';
+
+//             } catch (Exception $e) {
+//             return" mail->ErrorInfo";
+            // }
     }
 
    
     
     
-    try{ $mail->send();
-    return 'Message has been sent';
-    } catch (Exception $e) {
-    return "error happened";
-    // echo " {$mail->ErrorInfo}";
-    }
+    
     
 }
 
