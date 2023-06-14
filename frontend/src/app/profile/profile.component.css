@@ -1,3 +1,24 @@
+.main{
+  /* background-color: var(--main-color); */
+  background-color: var(--light-gray);
+  background-size: cover;
+  height: 90vh;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 7rem;
+  border-bottom: 2px solid var(--light-beige);
+  font-family: 'Amatic SC', cursive;
+  /* color: #333; */
+}
+
+.sdiv{
+  margin-top: 20px;
+}
+
 .profile-container {
   max-width: 600px;
   margin: 0 auto;
@@ -5,11 +26,6 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
 }
 
 .profile-info {

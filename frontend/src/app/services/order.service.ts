@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,4 +18,9 @@ export class OrderService {
   addOrder(formData:any){
     return this.http.post(`http://localhost/cafeteria/backend/orders` , formData)
   }
+
+  sendOrder(order:any){
+    return this.http.post(`http://localhost/cafeteria/backend/orders` , order)
+  }
+
 }

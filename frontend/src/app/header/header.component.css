@@ -9,6 +9,12 @@ button{
   background-color: var(--light-beige);
   font-weight: 500;
 }
+button:hover{
+  background-color: var(--light-beige);
+  color: white;
+  box-shadow: 0 0 8px var(--light-beige);
+  transition: 0.3s;
+}
 span{
   font-family: 'Petit Formal Script', cursive;
 }
