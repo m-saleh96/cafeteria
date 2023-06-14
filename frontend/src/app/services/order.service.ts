@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class OrderService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  getOrders(){
+    return this.http.get(`http://localhost/cafeteria/backend/orders`)
+  }
+
+  getOrder(id:number){
+    return this.http.get(`http://localhost/cafeteria/backend/orders${id}`)
+  }
+
+  addOrder(formData:any){
+    return this.http.post(`http://localhost/cafeteria/backend/orders` , formData)
+  }
 }

@@ -26,19 +26,21 @@
                 <th scope="col">Name</th>
                 <th scope="col">Total Amount</th>
                 <th scope="col">Order Date</th>
-                <th scope="col">amount</th>
+                <th scope="col">Total price</th>
 
 
             </tr>
         </thead>
         <tbody>
-            <!-- <tr *ngFor="let user of users">
-                <td>{{user.Name| uppercase}}</td>
-                <td>{{user.Room_No}}</td>
-                <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/images/'+user.picture" width="50px"></td>
-                <td>{{user.Ext}}</td>
-               
-            </tr> -->
+            <tr *ngFor="let check of checks">
+                <td>{{check.name}}</td>
+
+                <td>{{check.quantity}}</td>
+
+                <td>{{check.created_at}}</td>
+                <td>{{check.price}}</td>
+
+            </tr>
 
         </tbody>
     </table>
