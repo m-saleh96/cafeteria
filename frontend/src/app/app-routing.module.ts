@@ -17,6 +17,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { CartComponent } from './cart/cart.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
 
   {
@@ -54,6 +55,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AuthGuard],
     component:DashboardComponent,
     children:[
       {

@@ -26,7 +26,7 @@ export class AuthService {
 
   login(loginFormValue:any):Observable<any>
   {
-    return this.http.post('http://localhost/cafeteria/backend/login' , loginFormValue)
+    return this.http.post('http://localhost/cafeteria/backend/login' , loginFormValue )
   }
 
   saveCurrentUser(token:any)
@@ -39,7 +39,7 @@ export class AuthService {
   logOut(){
     this.currentUsers.next(null);
     localStorage.clear() ;
-    // this.router.navigate(['/login'])
+    this.router.navigate(['/login'])
   }
 
 }
