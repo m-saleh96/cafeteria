@@ -10,12 +10,23 @@ import { OrderService } from '../services/order.service';
 export class MyOrdersComponent {
 orders:any[]=[];
 userID!:number;
+startDate!: string;
+endDate!: string;
 constructor(private authService:AuthService , private orderService:OrderService){}
 ngOnInit(){
   this.authService.currentUsers.subscribe((data:any)=>this.userID=data[1].id);
   this.orderService.getOrderByUserId(this.userID).subscribe((res:any)=>this.orders=res);
+}
 
-
+filterOrders() {
+  if (this.startDate && this.endDate) {
+    const startDate = new Date(this.startDate);
+    const endDate = new Date(this.endDate);
+    this.orders = this.orders.filter((order: any) => {
+      const orderDate = new Date(order.created_at);
+      return orderDate >= startDate && orderDate <= endDate;
+    });
+  }
 }
 
 }
