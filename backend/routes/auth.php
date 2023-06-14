@@ -38,5 +38,5 @@ if($url[0] == 'repassword' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == '
 if($url[0] == 'sendEmail' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Access-Control-Allow-Methods: POST');   
     $respones = $AuthController->sendEmail($_POST['Email']);
-    // echo json_encode($respones);
+    echo json_encode($respones);
 }
