@@ -10,6 +10,7 @@ header("Access-Control-Allow-Headers: access");
 header("Access-Control-Allow-Methods: PUT");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+use Rakit\Validation\Validator;
 
 
 
@@ -39,27 +40,45 @@ else if($url[0] == 'users'  && $_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Access-Control-Allow-Methods: POST');
     $user = [];
     if($_SERVER['CONTENT_TYPE'] == 'application/json') {
-        $data = file_get_contents("php://input");
-        $products = json_decode($data, true);
     } 
-//     // 1	id  	Name		Email 	Password		Room_No		Ext	picture
-
+//     // 1	id  	Name		Email 	Password		Room_No		Ext	picture  Is_admin
+ 
     else {
+
+        $validator = new Validator;
+        $validation = $validator->make($_POST + $_FILES, [
+            'Name'                  => 'required',
+            'Email'                 => 'required|email',
+            'Password'           => 'required|min:8',
+            'Room_No'           => 'required|numeric',
+            'Ext'           => 'required|numeric',
+            'picture'               => 'required|uploaded_file:0,500000K,png,jpeg',
+        ]);
+        $validation->validate();
+        if ($validation->fails()) {
+            http_response_code(422);
+            $errors = $validation->errors();
+           echo json_encode($errors->firstOfAll());
+           exit();
+        }         
+
     $target = "./images/";
-    $user_Name = $_POST['Name'];
-    $user_Email = $_POST['Email'];
-    $user_Password = $_POST['Password'];
-    $user_Room_No = $_POST['Room_No'];
-    $user_Ext = $_POST['Ext'];
+    // $user_Name = $_POST['Name'];
+    // $user_Email = $_POST['Email'];
+    // $user_Password = $_POST['Password'];
+    // $user_Room_No = $_POST['Room_No'];
+    // $user_Ext = $_POST['Ext'];
     $image = $_FILES['picture']['name'];
     $image = time().'_'.$image;
+
+
     $user = [
-            "Name" => $user_Name,
-            "Email" => $user_Email,
-            "Password" => $user_Password,
-            "Room_No" => $user_Room_No,
-            "Ext" => $user_Ext,
-            "picture" =>$image ,
+        "Name" =>  $_POST['Name'],
+        "Email" => $_POST['Email'],
+        "Password" =>  $_POST['Password'],
+        "Room_No" => $_POST['Room_No'],
+        "Ext" =>$_POST['Ext'],
+        "picture" =>$image ,
     ];       
 move_uploaded_file($_FILES['picture']['tmp_name'],$target.$image);
 }

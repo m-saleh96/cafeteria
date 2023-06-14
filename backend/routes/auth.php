@@ -17,7 +17,26 @@ $AuthController = new AuthController();
 $url = explode("/",$_SERVER['QUERY_STRING']);
 
 if($url[0] == 'login' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+
+
     header('Access-Control-Allow-Methods: POST');   
-    $respones = $AuthController->login($_POST['Email'],$_POST['password']);
+    $respones = file_get_contents('php://input');
+    $respones= json_decode($respones, true);
+    $respones = $AuthController->login($respones['Email'],$respones['password'] );
+    // echo json_encode($respones['Email'].$respones['password'] );
     echo json_encode($respones);
+}
+
+if($url[0] == 'repassword' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    header('Access-Control-Allow-Methods: POST');   
+    $respones = $AuthController->resetPassword($_POST['Email'],$_POST['password']);
+    echo json_encode($respones);
+}
+
+if($url[0] == 'sendEmail' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    header('Access-Control-Allow-Methods: POST');   
+    $respones = $AuthController->sendEmail($_POST['Email']);
+    // echo json_encode($respones);
 }

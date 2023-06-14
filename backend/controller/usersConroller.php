@@ -10,8 +10,14 @@ class usersController {
 
     public function createuser($data) {
         global $db;
+        try {
         $users = $db->insert("users", $data);
-         return $db->rows("SELECT * FROM users WHERE id = ?", [$users]);
+        return $db->rows("SELECT * FROM users WHERE id = ?", [$users]);            
+        } catch (Exception $e) {
+            //throw $th;
+            return "error duplicated email plz login or reset password";
+        }
+
     }
 
     public function getuser($id) {
