@@ -75,6 +75,7 @@ const routes: Routes = [
         path:'categories',
         component : AdminCategoryComponent
       },
+      
     ]
   },
   {

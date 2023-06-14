@@ -62,7 +62,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     CategoryDetailsComponent,
     CartComponent,
     NotfoundComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
   ],
   imports: [
     BrowserModule,
