@@ -36,10 +36,7 @@
               <li class="nav-item">
                 <a class="nav-link text-white" routerLink="category" routerLinkActive="active">Category</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" routerLinkActive="active">any</a>
-              </li>
-              <li class="nav-item">
+              <li  class="nav-item">
                 <a class="nav-link text-white" routerLink="admin/welcome" routerLinkActive="active">DashBoard</a>
               </li>
             </ul>
@@ -48,23 +45,23 @@
 
         <div class="x d-flex">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link text-white" routerLink="my-orders" routerLinkActive="active">My-Orders</a>
+            <li  class="nav-item">
+              <a class="nav-link text-white" routerLink="my-orders" routerLinkActive="active">My Orders</a>
             </li>
-            <li class="nav-item">
+            <li  class="nav-item">
               <a class="nav-link text-white" routerLink="cart" routerLinkActive="active"><i class="fa-solid fa-cart-shopping"></i><sup>{{counter}}</sup></a>
             </li>
-            <li class="nav-item">
+            <li  class="nav-item">
               <a class="nav-link text-white" routerLink="register" routerLinkActive="active">Register</a>
             </li>
-            <li class="nav-item">
+            <li  class="nav-item">
               <a class="nav-link text-white" routerLink="login" routerLinkActive="active">Login</a>
             </li>
-            <li class="nav-item">
+            <li  class="nav-item">
               <a class="nav-link" routerLinkActive="active"><i class="fa-solid fa-user text-white"></i></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white">LogOut</a>
+            <li  class="nav-item">
+              <a class="nav-link text-white" (click)="logOut()">LogOut</a>
             </li>
             </ul>
         </div>

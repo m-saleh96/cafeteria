@@ -20,11 +20,13 @@ class usermodel {
         return $users;
     }
     
-    public function updatepassword($id, $password) {
+    public function updatepassword($email, $password) {
         global $db;
-        $Id =['id' => $id];
-         $users = $db->update("users", $password, $Id);
-        return $db->rows("SELECT * FROM users WHERE id = ?", [$id]);
+        $email =['Email' => $email];
+         $user = $db->update("users", $password, $email);
+        //  return ;
+        if($user){return "update success";}
+        return "no data to change";
     }
 
     // public function deleteuser($id){

@@ -2,6 +2,7 @@ import { Component , Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CounterService } from '../services/counter.service';
 import { RequestService } from '../services/request.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-product-card',
@@ -12,7 +13,8 @@ export class ProductCardComponent {
 @Input() product!:any;
 counter:number = 0;
 requests:any;
-constructor(private route:Router , private counterService:CounterService , private requestService:RequestService ){}
+constructor(private route:Router , private counterService:CounterService , private requestService:RequestService ,
+  private authService:AuthService , private router:Router ){}
 
 ngOnInit(){
   this.counterService.counterVal.subscribe(res=>this.counter=res);
@@ -24,6 +26,15 @@ redirectToProduct(id:number){
 }
 
 addToCart(id:number){
+  // this.authService.currentUsers.subscribe((data:any)=>{
+  // // if (data ==null) {
+  // //   this.router.navigate(['/login'])
+  // // }
+  // })
+
+  if(this.requests.includes(id)){
+    return;
+  }
   this.requests.push(id);
   this.requestService.getReq(this.requests);
   this.counterService.setCounter(++this.counter);

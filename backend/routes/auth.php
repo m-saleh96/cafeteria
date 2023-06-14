@@ -21,3 +21,15 @@ if($url[0] == 'login' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST'
     $respones = $AuthController->login($_POST['Email'],$_POST['password']);
     echo json_encode($respones);
 }
+
+if($url[0] == 'repassword' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    header('Access-Control-Allow-Methods: POST');   
+    $respones = $AuthController->resetPassword($_POST['Email'],$_POST['password']);
+    echo json_encode($respones);
+}
+
+if($url[0] == 'sendEmail' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    header('Access-Control-Allow-Methods: POST');   
+    $respones = $AuthController->sendEmail($_POST['Email']);
+    // echo json_encode($respones);
+}

@@ -18,10 +18,7 @@ import { CartComponent } from './cart/cart.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 const routes: Routes = [
-  {
-    path: 'editUser/:id',
-    component: EditUserComponent
-  },
+
   {
     path:'',
     redirectTo : 'home',
@@ -34,6 +31,10 @@ const routes: Routes = [
   {
     path:'category',
     component : CategoryListComponent
+  },
+  {
+    path: 'editUser/:id',
+    component: EditUserComponent
   },
   {
     path:'category-details/:id',
