@@ -32,6 +32,7 @@ import { CartComponent } from './cart/cart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChecksComponent } from './admin/checks/checks.component';
 
 
 @NgModule({
@@ -53,18 +54,17 @@ import { ProfileComponent } from './profile/profile.component';
     EditUserComponent,
     RegisterComponent,
     LoginComponent,
-
     ThirdHomeSectionComponent,
     FooterComponent,
     FourthHomeSectionComponent,
-
     CategoryListComponent,
     CategoryCardComponent,
     CategoryDetailsComponent,
     CartComponent,
     NotfoundComponent,
     MyOrdersComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChecksComponent
   ],
   imports: [
     BrowserModule,
