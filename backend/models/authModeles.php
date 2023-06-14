@@ -29,6 +29,11 @@ class usermodel {
         return "no data to change";
     }
 
+ public function CheekEmail($Email) {
+        global $db;
+        $users = $db->row("SELECT * FROM users WHERE email = ? ", [$Email]);
+        return $users;
+    }
     // public function deleteuser($id){
     // global $db;
     // $id = ['id'=>$id];
