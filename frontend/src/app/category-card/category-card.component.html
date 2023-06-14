@@ -1,5 +1,6 @@
-<div class="card text-center border-0">
+
+<div class="card text-center border-0" (click)="redirectToProduct(category.id)">
   <div class="card-body p-3 child">
-    <h2 (click)="redirectToProduct(category.id)" class="card-title text-center">{{category.name}}</h2>
+    <h2 class="card-title text-center">{{category.name}}</h2>
   </div>
 </div>

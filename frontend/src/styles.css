@@ -12,3 +12,6 @@
   --semi-white: #EFEFEF;
   --light-orange: #A55422;
 }
+html{
+  background-color: var(--main-color);
+}
