@@ -54,7 +54,6 @@ img{
   line-height: 1;
 }
 .text-truncate {
-
   text-overflow: ellipsis;
 }
 td.text-truncate {
