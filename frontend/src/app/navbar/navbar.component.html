@@ -58,7 +58,7 @@
               <a class="nav-link text-white" routerLink="login" routerLinkActive="active">Login</a>
             </li>
             <li *ngIf="isLogin" class="nav-item">
-              <a class="nav-link" routerLinkActive="active"><i class="fa-solid fa-user text-white"></i></a>
+              <a class="nav-link" routerLink="profile" routerLinkActive="active"><img class="rounded-5" [src]="'http://localhost/cafeteria/backend/images/'+userImage" alt="" width="50px"></a>
             </li>
             <li *ngIf="isLogin" class="nav-item">
               <a class="nav-link text-white" (click)="logOut()">LogOut</a>

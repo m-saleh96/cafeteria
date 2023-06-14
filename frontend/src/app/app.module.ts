@@ -31,6 +31,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { CartComponent } from './cart/cart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     CategoryDetailsComponent,
     CartComponent,
     NotfoundComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
