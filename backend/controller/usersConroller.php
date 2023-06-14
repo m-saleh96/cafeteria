@@ -15,6 +15,7 @@ class usersController {
         return $db->rows("SELECT * FROM users WHERE id = ?", [$users]);            
         } catch (Exception $e) {
             //throw $th;
+
             return "error". $e->getMessage();
         }
 
