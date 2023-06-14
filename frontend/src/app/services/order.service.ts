@@ -11,10 +11,6 @@ export class OrderService {
     return this.http.get(`http://localhost/cafeteria/backend/orders`)
   }
 
-  getOrder(id:number){
-    return this.http.get(`http://localhost/cafeteria/backend/orders${id}`)
-  }
-
   addOrder(formData:any){
     return this.http.post(`http://localhost/cafeteria/backend/orders` , formData)
   }
@@ -23,4 +19,8 @@ export class OrderService {
     return this.http.post(`http://localhost/cafeteria/backend/orders` , order)
   }
 
+
+  getOrderByUserId(id:number){
+    return this.http.get(`http://localhost/cafeteria/backend/orders/${id}`)
+  }
 }
