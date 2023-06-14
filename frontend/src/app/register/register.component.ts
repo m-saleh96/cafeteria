@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   constructor(private authService:AuthService , private router:Router){}
-
+  errorMessage:any='';
   flag:boolean = false;
 
   selectedFile: File | null = null;
@@ -41,10 +41,11 @@ export class RegisterComponent {
       formData.append('Ext', this.registerForm.get('Ext')!.value);
       formData.append('picture', this.selectedFile);
       this.authService.register(formData).subscribe((data)=>{
-            if (data) {
+            if (data !== "error duplicated email plz login or reset password") {
               this.router.navigate(['/login'])
             }
             else{
+              this.errorMessage = data;
               this.flag = true;
             }})
     } else{

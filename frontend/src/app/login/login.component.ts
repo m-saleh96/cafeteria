@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   constructor(private authService:AuthService , private router:Router){}
-  errorMessage:any;
+  errorMessage:any='';
   flag:boolean =false;
   loginForm:FormGroup = new FormGroup({
     'Email':new FormControl(null , [Validators.email , Validators.required]),
-    'Password':new FormControl(null , [Validators.required])
+    'password':new FormControl(null , [Validators.required])
   });
 
   getLoginInfo(loginForm:any)
@@ -23,13 +23,13 @@ export class LoginComponent {
 
     if(loginForm.valid == true){
       this.authService.login(loginForm.value).subscribe((data)=>{
-        if (data.status === 'success') {
+        if (data !== 'email or password is error') {
           this.authService.saveCurrentUser(data.data)
           this.router.navigate(['/home'])
         }
         else{
           this.flag = true;
-          this.errorMessage = data.message;
+          this.errorMessage = data;
         }
       })
     }else{
