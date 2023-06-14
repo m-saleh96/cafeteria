@@ -1,26 +1,59 @@
-<div class="container my-5">
-  <div class="profile-container">
-    <h1>Profile</h1>
-    <div class="profile-info">
-        <div class="info-item text-center my-5">
-            <span><img class="rounded-5" [src]="'http://localhost/cafeteria/backend/images/'+image" alt="" width="50%"></span>
-        </div>
-        <div class="info-item">
-            <label>Name:</label>
-            <span id="name">{{name}}</span>
-        </div>
-        <div class="info-item">
-            <label>Email:</label>
-            <span id="email">{{email}}</span>
-        </div>
-        <div class="info-item">
-            <label>Room No:</label>
-            <span id="room-no">{{room}}</span>
-        </div>
-        <div class="info-item">
-            <label>Role:</label>
-            <span id="role">{{role}}</span>
-        </div>
+<!-- <div class="main py-5">
+  <div class="container">
+    <div class="profile-container">
+      <h1>Profile</h1>
+      <div class="profile-info">
+          <div class="info-item text-center my-5">
+              <span><img class="rounded-5" [src]="'http://localhost/cafeteria/backend/images/'+image" alt="" width="50%"></span>
+          </div>
+          <div class="info-item">
+              <label>Name:</label>
+              <span id="name">{{name}}</span>
+          </div>
+          <div class="info-item">
+              <label>Email:</label>
+              <span id="email">{{email}}</span>
+          </div>
+          <div class="info-item">
+              <label>Room No:</label>
+              <span id="room-no">{{room}}</span>
+          </div>
+          <div class="info-item">
+              <label>Role:</label>
+              <span id="role">{{role}}</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</div> -->
+
+<div class="main d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-6 me-5">
+        <span><img class="rounded-5" [src]="'http://localhost/cafeteria/backend/images/'+image" alt="" width="50%"></span>
+      </div>
+      <div class="col-sm-6 col-md-4 d-flex flex-column justify-content-center text-end ms-auto">
+        <h1 class="text-center text-md-start">My Profile</h1>
+
+        <div class="sdiv info-item text-center text-md-start">
+          <label>Name:</label>
+          <span id="name">{{name}}</span>
+      </div>
+      <div class="info-item text-center text-md-start">
+          <label>Email:</label>
+          <span id="email">{{email}}</span>
+      </div>
+      <div class="info-item text-center text-md-start">
+          <label>Room No:</label>
+          <span id="room-no">{{room}}</span>
+      </div>
+      <div class="info-item text-center text-md-start">
+          <label>Role:</label>
+          <span id="role">{{role}}</span>
+      </div>
+      </div>
     </div>
+  </div>
 </div>
-</div>
+
