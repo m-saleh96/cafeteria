@@ -17,6 +17,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { CartComponent } from './cart/cart.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ChecksComponent } from './admin/checks/checks.component';
 const routes: Routes = [
   {
     path: 'editUser/:id',
@@ -74,6 +75,10 @@ const routes: Routes = [
       {
         path:'categories',
         component : AdminCategoryComponent
+      },
+      {
+        path:'checks',
+        component : ChecksComponent
       },
     ]
   },

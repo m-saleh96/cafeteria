@@ -1,0 +1,47 @@
+<p>checks works!</p>
+
+<div class="container">
+    <div>
+        <label for="start">Enter the start Date:</label>
+
+        <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+
+        <label for="start">Enter the End Date:</label>
+
+        <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+
+
+    </div>
+    <select name="user">
+        <option value="">Users</option>
+    <option *ngFor="let user of users" [ngValue]="user.Name">
+      {{ user.Name }}
+    </option>
+  </select>
+
+  <div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">amount</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr *ngFor="let user of users">
+                <td>{{user.Name| uppercase}}</td>
+                <td>{{user.Room_No}}</td>
+                <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/images/'+user.picture" width="50px"></td>
+                <td>{{user.Ext}}</td>
+               
+            </tr> -->
+
+        </tbody>
+    </table>
+  </div>
+  
+</div>

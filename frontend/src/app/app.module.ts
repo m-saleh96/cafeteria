@@ -31,6 +31,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { CartComponent } from './cart/cart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ChecksComponent } from './admin/checks/checks.component';
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     EditUserComponent,
     RegisterComponent,
     LoginComponent,
-
+    ChecksComponent,
     ThirdHomeSectionComponent,
     FooterComponent,
     FourthHomeSectionComponent,
