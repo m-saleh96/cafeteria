@@ -3,14 +3,6 @@
   height: 90vh;
   color: white;
 }
-.profile-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
 
 h1 {
   text-align: center;
@@ -20,9 +12,20 @@ h1 {
   font-family: 'Amatic SC', cursive;
   /* color: #333; */
 }
+
 .sdiv{
   margin-top: 20px;
 }
+
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
 .profile-info {
   margin-top: 20px;
 }
