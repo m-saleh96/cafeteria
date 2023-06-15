@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { CheeckNumbEmailComponent } from './cheeck-numb-email/cheeck-numb-email.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 const routes: Routes = [
   {
     path: 'editUser/:id',
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path:'category-details/:id',
     component : CategoryDetailsComponent
+  },
+  {
+    path:'allproducts',
+    component : AllProductsComponent
   },
   {
     path: 'register',

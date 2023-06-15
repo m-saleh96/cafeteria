@@ -36,6 +36,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { CheeckNumbEmailComponent } from './cheeck-numb-email/cheeck-numb-email.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { ChecksComponent } from './admin/checks/checks.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ChecksComponent } from './admin/checks/checks.component';
     ForgetPasswordComponent,
     CheeckNumbEmailComponent,
     ResetpasswordComponent,
-    ChecksComponent
+    ChecksComponent,
+    AllProductsComponent
   ],
   imports: [
     BrowserModule,
