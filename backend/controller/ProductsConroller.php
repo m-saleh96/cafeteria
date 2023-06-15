@@ -7,7 +7,7 @@ class ProductsController {
     public function getAllProducts() {
         global $db;
         $products = $db->rows("SELECT * FROM products");
-        return $products;
+        echo json_encode($products);
     }
 
     public function createProduct($data) {
