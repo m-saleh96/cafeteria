@@ -56,10 +56,6 @@ export class ChecksComponent {
           });
         }
       });
-
     }
-
-
-
   }
 }
