@@ -1,6 +1,7 @@
 <?php
 require_once('db.php');
 
+error_reporting(E_ERROR | E_PARSE);
 
 class ProductsController {
     public function getAllProducts() {
