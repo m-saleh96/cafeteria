@@ -1,11 +1,6 @@
-select{
-    width: 10rem;
-}
+
 label{
-    margin: 2rem;
-}
-button{
-    margin-left: 15rem;
+  margin: 15px;
 }
 table{
     margin-top: 3rem;
