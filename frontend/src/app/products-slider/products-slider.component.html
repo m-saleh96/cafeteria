@@ -1,0 +1,10 @@
+<div class="main pt-4">
+  <p class="text-center">Other Products</p>
+  <div id="books" class="container">
+    <div class="row slider">
+      <div class="col-md-3 my-3" *ngFor="let product of products">
+        <app-products-slider-card [product]="product"></app-products-slider-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -30,13 +30,14 @@ img{
   box-shadow: 0 0 8px var(--light-beige);
   transition: 0.3s;
 }
-.card {
-  transition: transform 0.2s ease-in-out;
+ .card {
+  /* transition: transform 0.2s ease-in-out; */
+  cursor: pointer;
 }
-
+/*
 .card:hover {
   transform: scale(1.05);
-}
+} */
 .btn-success{
   background-color: #198754;
 }
@@ -45,6 +46,15 @@ img{
 }
 .btn-danger{
   background-color: #DC3545;
+}
+.btn-success:hover{
+  box-shadow: 0 0 8px #198754;
+}
+.btn-primary:hover{
+  box-shadow: 0 0 8px #0D6EFD;
+}
+.btn-danger:hover{
+  box-shadow: 0 0 8px #DC3545;
 }
 .btn-square {
   width: 30px;
@@ -58,4 +68,10 @@ img{
 }
 td.text-truncate {
   width: 200px; /* adjust as needed */
+}
+.card-body img {
+  transition: transform 0.2s ease-in-out;
+}
+.card-body:hover img {
+  transform: scale(1.6);
 }

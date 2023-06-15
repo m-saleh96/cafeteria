@@ -36,6 +36,10 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { CheeckNumbEmailComponent } from './cheeck-numb-email/cheeck-numb-email.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { ChecksComponent } from './admin/checks/checks.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { AllProductsCardComponent } from './all-products-card/all-products-card.component';
+import { ProductsSliderComponent } from './products-slider/products-slider.component';
+import { ProductsSliderCardComponent } from './products-slider-card/products-slider-card.component';
 
 
 @NgModule({
@@ -70,7 +74,11 @@ import { ChecksComponent } from './admin/checks/checks.component';
     ForgetPasswordComponent,
     CheeckNumbEmailComponent,
     ResetpasswordComponent,
-    ChecksComponent
+    ChecksComponent,
+    AllProductsComponent,
+    AllProductsCardComponent,
+    ProductsSliderComponent,
+    ProductsSliderCardComponent
   ],
   imports: [
     BrowserModule,
