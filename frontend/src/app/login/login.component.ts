@@ -29,6 +29,8 @@ export class LoginComponent {
           this.flag = true;
           this.errorMessage = data;
         }
+        // console.log(data)
+
       })
     }else{
       this.flag = true;

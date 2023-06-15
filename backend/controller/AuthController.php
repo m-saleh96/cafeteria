@@ -122,27 +122,30 @@ public function sendEmail($email){
         $auth=new usermodel();
         $user= $auth->CheekEmail($email);
         if($user){
-            return "userfound";
+          $number=rand(100000,999999);
+            $mail= connectToMailer();
+            $mail->setFrom('kirolosvictor58@gmail.com', 'gerges');    
+            $mail->addAddress($email, 'user');    
+            //         // $mail->setFrom('kirolosvictor58@gmail.com', 'gerges');    
+            //         // $mail->addAddress($email, 'semon');   
+                    $mail->isHTML(true);                                  //Set email format to HTML
+                    $mail->CharSet="UTF-8";
+                    $mail->Subject = 'reset password';
+                    $mail->Body    = '<h1> to change password enter this number</h1><br> <strong >'.$number.'</strong>';
+                    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                    try{ $mail->send();
+                    return [$email,$number];
+                        } catch (Exception $e) {
+                        return" mail->ErrorInfo";
+                        }
+
+
+
         }
-        else{return  "user no found";}
-//         $mail= connectToMailer();
+        else{return  "user not found plz create acount";}
 
 
-//  $mail->setFrom('kirolosvictor58@gmail.com', 'gerges');    
-//  $mail->addAddress('kirolosvictor58@gmail.com', 'user');    
-//         // $mail->setFrom('kirolosvictor58@gmail.com', 'gerges');    
-//         // $mail->addAddress($email, 'semon');   
-//         $mail->isHTML(true);                                  //Set email format to HTML
-//         $mail->CharSet="UTF-8";
-//         $mail->Subject = 'reset password';
-//         $mail->Body    = '<h1> to change password enter this number</h1><br> <strong >'.rand(100000,999999).'</strong>';
-//         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-//         try{ $mail->send();
-//         return 'Message has been sent';
-
-//             } catch (Exception $e) {
-//             return" mail->ErrorInfo";
-            // }
+//  
     }
 
    
