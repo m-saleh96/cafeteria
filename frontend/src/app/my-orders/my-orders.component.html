@@ -1,44 +1,47 @@
-<div class="container mt-5">
-  <div class="my-5">
-    <span class="mx-5">
-      <label for="start">Enter the start Date: </label>
-      <input type="date" name="startDate" [(ngModel)]="startDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-    </span>
-    <span class="mx-1">
-      <label for="end">Enter the end Date: </label>
-      <input type="date" name="endDate" [(ngModel)]="endDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-    </span>
-    <button class="btn btn-primary" (click)="filterOrders()">get orders</button>
+<div class="main">
+  <div class="container pt-5">
+    <div class="my-5">
+      <span class="mx-5">
+        <label for="start">Enter the start Date: </label>
+        <input type="date" name="startDate" [(ngModel)]="startDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+      </span>
+      <span class="mx-1">
+        <label for="end">Enter the end Date: </label>
+        <input type="date" name="endDate" [(ngModel)]="endDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+      </span>
+      <button class="btn btn-primary" (click)="filterOrders()">get orders</button>
+    </div>
+
+  <div>
+    <table class="table table-bordered text-center">
+      <thead>
+          <tr>
+              <th scope="col">photo</th>
+              <th scope="col">Name</th>
+              <th scope="col">price</th>
+              <th scope="col">quantity</th>
+              <th scope="col">total Price</th>
+              <th scope="col">Room No</th>
+              <th scope="col">status</th>
+              <th scope="col">Created at</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let row of orders;">
+              <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/'+row.picture" width="50px"></td>
+              <td>{{row.name}}</td>
+              <td>{{row.price}}</td>
+              <td>{{row.quantity}}</td>
+              <td>{{row.price * row.quantity}}</td>
+              <td>{{row.room_no}}</td>
+              <td>{{row.status}}</td>
+              <td>{{row.created_at}}</td>
+          </tr>
+
+      </tbody>
+    </table>
+
+  </div>
   </div>
 
-<div>
-  <table class="table table-bordered text-center">
-    <thead>
-        <tr>
-            <th scope="col">photo</th>
-            <th scope="col">Name</th>
-            <th scope="col">price</th>
-            <th scope="col">quantity</th>
-            <th scope="col">total Price</th>
-            <th scope="col">Room No</th>
-            <th scope="col">status</th>
-            <th scope="col">Created at</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let row of orders;">
-            <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/'+row.picture" width="50px"></td>
-            <td>{{row.name}}</td>
-            <td>{{row.price}}</td>
-            <td>{{row.quantity}}</td>
-            <td>{{row.price * row.quantity}}</td>
-            <td>{{row.room_no}}</td>
-            <td>{{row.status}}</td>
-            <td>{{row.created_at}}</td>
-        </tr>
-
-    </tbody>
-  </table>
-
-</div>
 </div>
