@@ -12,11 +12,7 @@ export class ProductsSliderComponent {
 
   constructor(private productService:ProductsService){}
   ngOnInit():void{
-    this.productService.getProducts().subscribe((res:any)=>{
-      this.products=res;
-      console.log(this.products);
-
-    })
+    this.productService.getProducts().subscribe((res:any)=>this.products=res);
   }
 
 }

@@ -20,6 +20,8 @@ ngOnInit(){
 }
 
 onViewAllClick() {
+  console.log("work");
+
   this.router.navigate(['/allproducts']);
 }
 }

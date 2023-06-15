@@ -34,7 +34,6 @@ getProductDetails(id: number): void {
   this.productService.getProduct(id).subscribe(
     (data: any) => {
       this.product = data;
-      console.log(this.product);
     },
     (error: any) => {
       console.error('Error retrieving product details:', error);
