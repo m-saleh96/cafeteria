@@ -55,8 +55,6 @@ export class ChecksComponent {
             return orderDate >= startDate && orderDate <= endDate;
           });
         }
-        console.log(this.checks);
-
       });
 
     }
