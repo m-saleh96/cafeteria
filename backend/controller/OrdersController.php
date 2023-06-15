@@ -65,6 +65,9 @@ class OrdersController {
         // Update the main order details
         $update = $db->update("orders", $orderData, $id);
         return $update;
+
+
+        
       
         // // Update the order items
         // if (isset($data['products'])) {
@@ -82,6 +85,33 @@ class OrdersController {
         // return true;
     }
     
+    public function updateStatus($id, $data) {
+        global $db;
+        $orderData = [
+            "status" => $data
+        ];
+        $id = ['id' => $id];
+        // Update the main order details
+        $update = $db->update("orders", $orderData, $id);
+        
+        return $update;
+    }
+
+
+    public function cansel_order($id, $data) {
+        global $db;
+        // $users = $db->row("SELECT * FROM users WHERE id = ?", [$id]);
+        $where = ['id' => $id,
+        'user_id'=>$data['user_id']];
+        $orders = $db->delete("orders",$where);
+        return $orders;
+
+        // $where = ['id' => 2];
+// $db->delete('users', $where);
+        // $update = $db->update("orders", $orderData, $id);
+        
+        // return $update;
+    }
 
     public function deleteOrder($id){
     global $db;
