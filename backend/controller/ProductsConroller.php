@@ -1,12 +1,13 @@
 <?php
 require_once('db.php');
 
+error_reporting(E_ERROR | E_PARSE);
 
 class ProductsController {
     public function getAllProducts() {
         global $db;
         $products = $db->rows("SELECT * FROM products");
-        return $products;
+        echo json_encode($products);
     }
 
     public function createProduct($data) {
