@@ -37,6 +37,7 @@ import { CheeckNumbEmailComponent } from './cheeck-numb-email/cheeck-numb-email.
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { ChecksComponent } from './admin/checks/checks.component';
 import { AllProductsComponent } from './all-products/all-products.component';
+import { AllProductsCardComponent } from './all-products-card/all-products-card.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { AllProductsComponent } from './all-products/all-products.component';
     CheeckNumbEmailComponent,
     ResetpasswordComponent,
     ChecksComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    AllProductsCardComponent
   ],
   imports: [
     BrowserModule,

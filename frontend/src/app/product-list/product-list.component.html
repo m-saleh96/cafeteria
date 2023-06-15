@@ -1,10 +1,15 @@
 <div class="main pt-4">
   <p class="text-center">Our Products</p>
   <div id="books" class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-md-3 my-3" *ngFor="let product of products">
         <app-product-card [product]="product"></app-product-card>
       </div>
+
+      <div class="col-4 d-flex justify-content-center align-items-center mt-5">
+        <a class="btn px-3 my-btn" (click)="onViewAllClick()">View All</a>
+      </div>
+
     </div>
   </div>
 </div>
