@@ -37,9 +37,11 @@ export class ProductsSliderCardComponent implements AfterViewInit, OnDestroy {
         dots: false,
         infinite: true,
         arrows: false,
-        speed: 700,
         slidesToShow: 4,
         slidesToScroll: 4,
+        speed: 2000,
+        autoplay: true,
+        autoplaySpeed: 3000,
         responsive: [
           {
             breakpoint: 992,
