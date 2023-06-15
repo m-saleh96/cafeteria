@@ -24,7 +24,7 @@
                     {{ user.Name }}
                 </option>
             </select>
-            <button class="btn btn-primary" (click)="onSubmit(start_date,end_Date,user)"> Filter </button>
+            <button class="btn btn-primary" (click)="onSubmit()"> Filter </button>
         </div>
 
 
@@ -41,9 +41,9 @@
             </tr>
         </thead>
         <tbody>
-        
+
             <tr *ngFor="let check of checks">
-            <td >{{userName}}</td>
+            <td >{{check.name}}</td>
                 <td>{{check.quantity}}</td>
 
                 <td>{{check.created_at}}</td>
