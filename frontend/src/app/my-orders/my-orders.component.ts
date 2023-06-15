@@ -19,14 +19,17 @@ ngOnInit(){
 }
 
 filterOrders() {
-  if (this.startDate && this.endDate) {
-    const startDate = new Date(this.startDate);
-    const endDate = new Date(this.endDate);
-    this.orders = this.orders.filter((order: any) => {
-      const orderDate = new Date(order.created_at);
-      return orderDate >= startDate && orderDate <= endDate;
-    });
-  }
+  this.orderService.getOrderByUserId(this.userID).subscribe((res: any) => {
+    this.orders = res;
+    if (this.startDate && this.endDate) {
+      const startDate = new Date(this.startDate);
+      const endDate = new Date(this.endDate);
+      this.orders = this.orders.filter((order: any) => {
+        const orderDate = new Date(order.created_at);
+        return orderDate >= startDate && orderDate <= endDate;
+      });
+    }
+  });
 }
 
 }

@@ -47,3 +47,8 @@ h1 {
   margin-left: 10px;
 }
 
+td:first-child{
+  color: aqua;
+  width: 60px !important;
+}
+

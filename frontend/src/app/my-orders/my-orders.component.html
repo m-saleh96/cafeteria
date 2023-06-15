@@ -1,14 +1,22 @@
 <div class="container mt-5">
   <div class="my-5">
-    <span class="mx-5">
-      <label for="start">Enter the start Date: </label>
-      <input type="date" name="startDate" [(ngModel)]="startDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-    </span>
-    <span class="mx-1">
-      <label for="end">Enter the end Date: </label>
-      <input type="date" name="endDate" [(ngModel)]="endDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-    </span>
-    <button class="btn btn-primary" (click)="filterOrders()">get orders</button>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="start">Enter the start Date:</label>
+          <input class="form-control" type="date" name="startDate" [(ngModel)]="startDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="end">Enter the end Date:</label>
+          <input class="form-control" type="date" name="endDate" [(ngModel)]="endDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-primary mt-4" (click)="filterOrders()">Filter Orders by Date</button>
+      </div>
+    </div>
   </div>
 
 <div>
