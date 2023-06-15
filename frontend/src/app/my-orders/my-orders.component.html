@@ -1,21 +1,20 @@
 
 <div class="main">
   <div class="container pt-5">
-    <div class="my-5">
-      <span class="mx-5">
-        <label for="start">Enter the start Date: </label>
-        <input type="date" name="startDate" [(ngModel)]="startDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-      </span>
-      <span class="mx-1">
-        <label for="end">Enter the end Date: </label>
-        <input type="date" name="endDate" [(ngModel)]="endDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-      </span>
-      <button class="btn btn-primary" (click)="filterOrders()">get orders</button>
-    </div>
+    <table>
+      <tr>
+        <td class="px-1"><label for="start">Enter the start Date: </label></td>
+        <td ><input class="form-control my-3" type="date" name="startDate" [(ngModel)]="startDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31"></td>
+        <td class="ps-4"><label for="start">Enter the start Date: </label></td>
+        <td ><input class="form-control my-3 mx-1" type="date" name="endDate" [(ngModel)]="endDate" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31"></td>
+        <td class="px-2"><button class="btn btn-success mx-3" (click)="filterOrders()">Filter Orders with Date</button></td>
+      </tr>
+    </table>
+
 
 
   <div>
-    <table class="table table-bordered text-center">
+    <table class="table table-dark table-bordered text-center">
       <thead>
           <tr>
               <th scope="col">photo</th>
