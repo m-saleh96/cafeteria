@@ -1,6 +1,7 @@
-select{
-    width: 10rem;
+
+label{
+  margin: 15px;
 }
-input{
-    margin: 2rem;
+table{
+    margin-top: 3rem;
 }

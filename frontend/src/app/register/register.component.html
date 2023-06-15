@@ -38,7 +38,7 @@
         <div class="form-group my-2">
           <label>Ext</label>
           <input [class.is-valid]="registerForm.get('Name')?.errors ==null && registerForm.get('Ext')?.touched"
-          formControlName='Ext' type="text" class="form-control">
+          formControlName='Ext' type="number" class="form-control" min="1">
           <p *ngIf="registerForm.get('Ext')?.errors !=null && registerForm.get('Ext')?.touched"
           class="py-2 text-danger">Ext inValid</p>
         </div>
