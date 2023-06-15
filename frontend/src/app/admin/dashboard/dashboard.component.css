@@ -1,7 +1,11 @@
 .panel{
   background-color: var(--main-color);
 }
-.main{
+/* .main{
   background: linear-gradient(to right, var(--main-color) 50%, white 50%);
-  
+
+} */
+.main, .container{
+  background-color: var(--main-color);
+  color: white;
 }

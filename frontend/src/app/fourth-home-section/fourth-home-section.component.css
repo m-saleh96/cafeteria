@@ -1,7 +1,31 @@
 .main {
   background-color: var(--main-color);
-  background-size: cover;
-  background-position: center;
   color: white;
-  height: 40vh;
+  height: 50vh;
 }
+.container{
+  margin-top: 3%;
+}
+
+h1{
+  font-family: 'Amatic SC', cursive;
+}
+
+h4{
+  font-size: 38px;
+  color: var(--light-beige);
+  font-family: 'Amatic SC', cursive;
+}
+
+span{
+  font-family: 'Petit Formal Script', cursive;
+}
+
+h1 {
+  display: flex;
+}
+
+.list-container {
+  display: flex;
+}
+

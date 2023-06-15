@@ -1,7 +1,15 @@
 
 label{
   margin: 15px;
+  color: white;
 }
 table{
     margin-top: 3rem;
+}
+.table, thead, tbody, th, tbody td{
+  background-color: var(--light-gray);
+  color: white;
+}
+table, tbody td, tr, th{
+  border: 1px solid #373B3E;
 }
