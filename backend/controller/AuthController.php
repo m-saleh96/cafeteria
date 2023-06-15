@@ -26,6 +26,7 @@ public function login($request_Email,$request_password){
 
         
         $payload = [
+            'user_id'=>$user->id,
             'username' => $user->Name,
             'email' => $user->Email,
             'admin' => $user->Is_admin,
@@ -97,12 +98,50 @@ TTqo1SCSH2pooJl9O8at6kkRYsrZWwsKlOFE2LUce7ObnXsYihStBUDoeBQlGG/B
 wQIDAQAB
 -----END PUBLIC KEY-----
 EOD;
-        $decoded = JWT::decode($token, new Key($publicKey, 'RS256'));
-        $decoded_array = (array) $decoded;
-        
-        return $decoded_array;  
+try {
+    $decoded = JWT::decode($token, new Key($publicKey, 'RS256'));
+    $decoded_array = (array) $decoded;
+    return $decoded_array;  
+} catch (Exception $e) {
+    return "this token is  invalid";
+}
 
 }
+
+
+
+
+
+
+
+public function is_admin($token){
+
+    $publicKey = <<<EOD
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzWHNM5f+amCjQztc5QT
+    fJfzCC5J4nuW+L/aOxZ4f8J3FrewM2c/dufrnmedsApb0By7WhaHlcqCh/ScAPyJ
+    hzkPYLae7bTVro3hok0zDITR8F6SJGL42JAEUk+ILkPI+DONM0+3vzk6Kvfe548t
+    u4czCuqU8BGVOlnp6IqBHhAswNMM78pos/2z0CjPM4tbeXqSTTbNkXRboxjU29vS
+    opcT51koWOgiTf3C7nJUoMWZHZI5HqnIhPAG9yv8HAgNk6CMk2CadVHDo4IxjxTz
+    TTqo1SCSH2pooJl9O8at6kkRYsrZWwsKlOFE2LUce7ObnXsYihStBUDoeBQlGG/B
+    wQIDAQAB
+    -----END PUBLIC KEY-----
+    EOD;
+    try {
+        $decoded = JWT::decode($token, new Key($publicKey, 'RS256'));
+        $decoded_array = (array) $decoded;
+        if($decoded_array['admin']==0){
+            return "admin";  
+        }
+        else{
+            return "not_admin";  
+
+        }
+    } catch (Exception $e) {
+        return "this token is  invalid";
+    }
+}    
+
 
 
 
