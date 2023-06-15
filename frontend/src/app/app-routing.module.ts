@@ -17,10 +17,17 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { CartComponent } from './cart/cart.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ChecksComponent } from './admin/checks/checks.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { CheeckNumbEmailComponent } from './cheeck-numb-email/cheeck-numb-email.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 const routes: Routes = [
-
+  {
+    path: 'editUser/:id',
+    component: EditUserComponent
+  },
   {
     path:'',
     redirectTo : 'home',
@@ -35,10 +42,6 @@ const routes: Routes = [
     component : CategoryListComponent
   },
   {
-    path: 'editUser/:id',
-    component: EditUserComponent
-  },
-  {
     path:'category-details/:id',
     component : CategoryDetailsComponent
   },
@@ -50,6 +53,15 @@ const routes: Routes = [
     path: 'login',
     component : LoginComponent
   },
+  {path:'forget/password',
+   component:ForgetPasswordComponent
+  },
+  {path:'cheekNumber',
+  component:CheeckNumbEmailComponent
+ },
+ {path:'resetPassword',
+ component:ResetpasswordComponent
+},
   {
     path:'product-details/:id',
     component : ProductDetailsComponent
@@ -78,6 +90,10 @@ const routes: Routes = [
       {
         path:'categories',
         component : AdminCategoryComponent
+      },
+      {
+        path:'checks',
+        component : ChecksComponent
       },
     ]
   },

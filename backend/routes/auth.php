@@ -31,12 +31,21 @@ if($url[0] == 'login' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST'
 
 if($url[0] == 'repassword' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Access-Control-Allow-Methods: POST');   
-    $respones = $AuthController->resetPassword($_POST['Email'],$_POST['password']);
+    $respones = file_get_contents('php://input');
+    $respones= json_decode($respones, true);
+
+    // echo json_encode($respones[0]);
+
+    $respones = $AuthController->resetPassword($respones[0],$respones[1]);
+    // echo json_encode($respones['Email'].$respones['password'] );
+
     echo json_encode($respones);
 }
 
 if($url[0] == 'sendEmail' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Access-Control-Allow-Methods: POST');   
-    $respones = $AuthController->sendEmail($_POST['Email']);
+    $respones = file_get_contents('php://input');
+    $respones= json_decode($respones, true);
+    $respones = $AuthController->sendEmail($respones['Email']);
     echo json_encode($respones);
 }

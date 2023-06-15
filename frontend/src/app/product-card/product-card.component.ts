@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
+
 @Input() product!:any;
 counter:number = 0;
 requests:any;

@@ -32,6 +32,10 @@ import { CartComponent } from './cart/cart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { CheeckNumbEmailComponent } from './cheeck-numb-email/cheeck-numb-email.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ChecksComponent } from './admin/checks/checks.component';
 
 
 @NgModule({
@@ -53,18 +57,20 @@ import { ProfileComponent } from './profile/profile.component';
     EditUserComponent,
     RegisterComponent,
     LoginComponent,
-
     ThirdHomeSectionComponent,
     FooterComponent,
     FourthHomeSectionComponent,
-
     CategoryListComponent,
     CategoryCardComponent,
     CategoryDetailsComponent,
     CartComponent,
     NotfoundComponent,
     MyOrdersComponent,
-    ProfileComponent
+    ProfileComponent,
+    ForgetPasswordComponent,
+    CheeckNumbEmailComponent,
+    ResetpasswordComponent,
+    ChecksComponent
   ],
   imports: [
     BrowserModule,

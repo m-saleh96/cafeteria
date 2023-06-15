@@ -19,7 +19,11 @@ export class ProfileComponent {
       this.name=data[1].Name
       this.email=data[1].Email
       this.room=data[1].Room_No
-      this.role=data[1].Is_admin
+      if (data[1].Is_admin == 1) {
+        this.role = "admin";
+      } else{
+        this.role = "user";
+      }
       this.image=data[1].picture
     })
   }
