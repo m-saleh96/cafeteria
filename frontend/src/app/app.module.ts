@@ -38,6 +38,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { ChecksComponent } from './admin/checks/checks.component';
 import { AllProductsComponent } from './all-products/all-products.component';
 import { AllProductsCardComponent } from './all-products-card/all-products-card.component';
+import { ProductsSliderComponent } from './products-slider/products-slider.component';
+import { ProductsSliderCardComponent } from './products-slider-card/products-slider-card.component';
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { AllProductsCardComponent } from './all-products-card/all-products-card.
     ResetpasswordComponent,
     ChecksComponent,
     AllProductsComponent,
-    AllProductsCardComponent
+    AllProductsCardComponent,
+    ProductsSliderComponent,
+    ProductsSliderCardComponent
   ],
   imports: [
     BrowserModule,
