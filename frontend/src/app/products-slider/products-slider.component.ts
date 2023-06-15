@@ -8,10 +8,15 @@ import { Product } from '../interfaces/product';
   styleUrls: ['./products-slider.component.css']
 })
 export class ProductsSliderComponent {
-  products:Product[]=[];
-  constructor(private productService:ProductsService){}
+  products:any[]=[];
 
-  ngOnInit(){
-    this.productService.getProducts().subscribe((data:any)=>(this.products=data))
+  constructor(private productService:ProductsService){}
+  ngOnInit():void{
+    this.productService.getProducts().subscribe((res:any)=>{
+      this.products=res;
+      console.log(this.products);
+
+    })
   }
+
 }

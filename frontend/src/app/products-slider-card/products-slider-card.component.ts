@@ -1,8 +1,9 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { CounterService } from '../services/counter.service';
 import { RequestService } from '../services/request.service';
 import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 
 declare var $: any;
 
@@ -11,61 +12,71 @@ declare var $: any;
   templateUrl: './products-slider-card.component.html',
   styleUrls: ['./products-slider-card.component.css']
 })
-export class ProductsSliderCardComponent implements AfterViewInit {
+export class ProductsSliderCardComponent implements AfterViewInit, OnDestroy {
   @Input() product!: any;
   counter: number = 0;
-  requests: any;
+  requests: any[] = [];
+  subscription!: Subscription;
 
-  constructor(private route: Router, private counterService: CounterService, private requestService: RequestService,
-    private authService: AuthService,private router: Router) { }
+  constructor(
+    private router: Router,
+    private counterService: CounterService,
+    private requestService: RequestService,
+    private authService: AuthService
+  ) { }
 
   redirectToProduct(id: number) {
-    this.route.navigate(['product-details', id]);
+    this.router.navigate(['product-details', id]);
   }
 
-  ngOnInit() {
-    this.counterService.counterVal.subscribe(res => this.counter = res);
-    this.requestService.orderRequests.subscribe(res => this.requests = res);
-  };
-
   ngAfterViewInit() {
-    $('.slider').slick({
-      dots: false,
-      infinite: true,
-      arrows: false,
-      speed: 700,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+    this.subscription = this.counterService.counterVal.subscribe(res => this.counter = res);
+    this.requestService.orderRequests.subscribe(res => this.requests = res);
+    setTimeout(() => {
+      $('.slider').slick({
+        dots: false,
+        infinite: true,
+        arrows: false,
+        speed: 700,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            }
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            }
           }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-          }
-        },
-        {
-          breakpoint: 576,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          }
-        }
-      ],
+        ],
+      });
     });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   addToCart(id: number) {
     this.authService.currentUsers.subscribe((data: any) => {
       if (data == null) {
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login']);
       } else {
         if (this.requests.includes(id)) {
           return;
@@ -74,6 +85,6 @@ export class ProductsSliderCardComponent implements AfterViewInit {
         this.requestService.getReq(this.requests);
         this.counterService.setCounter(++this.counter);
       }
-    })
+    });
   }
 }
