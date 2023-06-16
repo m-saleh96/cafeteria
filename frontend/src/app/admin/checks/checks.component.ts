@@ -24,8 +24,8 @@ export class ChecksComponent {
     this.usersService.getUsers().subscribe((res: any) => {
       this.users = res;
     });
-    this.authService.currentUsers.subscribe((data:any)=>this.token=data[0])
-
+    this.authService.currentUsers.subscribe((data:any)=>this.token=data[0]);
+    this.orderService.getOrders().subscribe((res: any)=>this.checks = res.reverse())
   }
   start_date: any = '';
   end_Date: any = '';
