@@ -21,4 +21,7 @@ sup{
   margin-left: 5px;
 }
 
-
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}

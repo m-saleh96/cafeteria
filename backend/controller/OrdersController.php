@@ -8,10 +8,12 @@ class OrdersController {
         // $orders = $db->rows("SELECT * FROM orders");
         // return $orders;
         $query = "SELECT  
-        oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
-        o.room_no,o.status,o.created_at
+        oi.id, oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
+        o.room_no,o.status,o.created_at,
+        u.name as user_name 
         FROM orders AS o
         JOIN order_items AS oi ON o.id = oi.order_id
+        join users as u on o.user_id = u.id
         JOIN products AS p ON oi.product_id = p.id";
         $orders = $db->rows($query);
         return $orders;
@@ -42,8 +44,10 @@ class OrdersController {
 
     public function getOrder($id) {
         global $db;
+
         return $db->row("select status FROM orders WHERE id = :id ", ['id' => $id]);
         // return $db->getById('orders', $id);
+
     }
     public function updateOrder($id, $data) {
         global $db;

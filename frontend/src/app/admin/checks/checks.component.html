@@ -1,49 +1,51 @@
-<p>checks works!</p>
-
 <div class="container">
-    <div>
-        <label for="start">Enter the start Date:</label>
+  <table style="border: none;">
+    <tr style="border: none;">
+      <td><label for="start">Enter the start Date:</label></td>
+      <td><input class="form-control" type="date" name="start_date" [(ngModel)]="start_date" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31"></td>
+      <td><label for="end">Enter the End Date:</label></td>
+      <td><input class="form-control" type="date" name="end_Date" [(ngModel)]="end_Date" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31"></td>
+    </tr>
+    <tr style="border: none;">
+      <td><label for="start">Choose user :</label></td>
+      <td>
+        <select class="form-select" name="user" [(ngModel)]="user">
+          <option value="">Users</option>
+          <option *ngFor="let user of users" [ngValue]="user.id">{{user.Name}}</option>
+        </select>
+      </td>
+      <td><button class="btn btn-primary mx-3 px-5" (click)="onSubmit()"> Filter </button></td>
+    </tr>
+  </table>
 
-        <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-
-        <label for="start">Enter the End Date:</label>
-
-        <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
-
-
-    </div>
-    <select name="user">
-        <option value="">Users</option>
-    <option *ngFor="let user of users" [ngValue]="user.Name">
-      {{ user.Name }}
-    </option>
-  </select>
-
-  <div>
-    <table class="table">
+    <table class="table text-center">
         <thead>
             <tr>
+                <th scope="col">Order</th>
                 <th scope="col">Name</th>
                 <th scope="col">Total Amount</th>
-                <th scope="col">Order Date</th>
                 <th scope="col">Total price</th>
-
-
+                <th scope="col">Order Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">change status</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let check of checks">
-                <td>{{check.name}}</td>
-
-                <td>{{check.quantity}}</td>
-
-                <td>{{check.created_at}}</td>
-                <td>{{check.price}}</td>
-
+              <td >{{check?.order_id}}</td>
+              <td >{{check?.user_name}}</td>
+              <td>{{check.quantity}}</td>
+              <td>{{check.price}}</td>
+              <td>{{check.created_at}}</td>
+              <td>{{check.status}}</td>
+              <td>
+                <select class="form-select" name="" id="" [(ngModel)]="selectval">
+                  <option value="out for delivery">Out for delivery</option>
+                  <option value="deliverd">deliverd</option>
+                </select>
+                <button (click)="updateStatus(check.order_id)" class="btn btn-success mt-1">Updata</button>
+              </td>
             </tr>
-
         </tbody>
     </table>
-  </div>
-  
 </div>

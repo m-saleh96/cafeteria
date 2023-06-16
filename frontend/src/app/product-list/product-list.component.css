@@ -7,3 +7,16 @@ p{
   font-family: 'Amatic SC', cursive;
   color: var(--light-orange);
 }
+.my-btn{
+  background-color: var(--light-beige);
+  color: black;
+}
+.my-btn:hover{
+  cursor: pointer;
+  background-color: var(--light-beige);
+  box-shadow: 0px 0px 8px var(--light-beige);
+  color: white;
+}
+a{
+  z-index: 99999;
+}

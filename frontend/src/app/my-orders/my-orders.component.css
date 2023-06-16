@@ -1,0 +1,14 @@
+.main{
+  background-color: var(--main-color);
+}
+.container{
+  background-color: var(--main-color);
+  color: white;
+}
+.table, thead, tbody, th, tbody td{
+  background-color: var(--light-gray);
+  color: white;
+}
+table, tbody td, tr, th{
+  border: 1px solid #373B3E;
+}
