@@ -12,6 +12,7 @@ orders:any[]=[];
 userID!:number;
 startDate!: string;
 endDate!: string;
+delOrder:any={};
 constructor(private authService:AuthService , private orderService:OrderService){}
 ngOnInit(){
   this.authService.currentUsers.subscribe((data:any)=>this.userID=data[1].id);
@@ -30,6 +31,17 @@ filterOrders() {
       });
     }
   });
+}
+
+deleteOrder(order_id:any , item_id:any){
+this.delOrder.order_id=order_id;
+this.delOrder.item_id=item_id
+this.orderService.deleteOrder(this.delOrder).subscribe((data:any)=>{
+  if(data){
+    alert("Canceled Successfully");
+    window.location.reload();
+  }
+})
 }
 
 }

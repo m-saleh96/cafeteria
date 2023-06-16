@@ -17,6 +17,7 @@
     <table class="table text-center">
       <thead>
           <tr>
+              <th scope="col">Order</th>
               <th scope="col">photo</th>
               <th scope="col">Name</th>
               <th scope="col">price</th>
@@ -25,10 +26,13 @@
               <th scope="col">Room No</th>
               <th scope="col">status</th>
               <th scope="col">Created at</th>
+              <th scope="col">#</th>
+
           </tr>
       </thead>
       <tbody>
           <tr *ngFor="let row of orders;">
+              <td>{{row.order_id}}</td>
               <td><img class="img-fluid" [src]="'http://localhost/cafeteria/backend/'+row.picture" width="50px"></td>
               <td>{{row.name}}</td>
               <td>{{row.price}}</td>
@@ -37,6 +41,7 @@
               <td>{{row.room_no}}</td>
               <td>{{row.status}}</td>
               <td>{{row.created_at}}</td>
+              <td><button *ngIf="row.status=='processing'" (click)="deleteOrder(row.order_id , row.id)" class="btn btn-danger">Cancel</button></td>
           </tr>
       </tbody>
     </table>

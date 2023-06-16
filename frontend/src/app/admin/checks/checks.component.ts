@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ChecksOrder } from 'src/app/interfaces/checks-order';
 import { Order } from 'src/app/interfaces/order';
 import { Users } from 'src/app/interfaces/users';
+import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from 'src/app/services/order.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -15,13 +16,16 @@ export class ChecksComponent {
   users !: Users[];
   checks !: ChecksOrder[];
   orders!: Order[];
-
-  constructor(private usersService: UsersService, private orderService: OrderService) { }
+  selectval:any='out for delivery';
+  changeStatus:any={};
+  token!:any;
+  constructor(private usersService: UsersService, private orderService: OrderService , private authService:AuthService) { }
 
   ngOnInit() {
     this.usersService.getUsers().subscribe((res: any) => {
       this.users = res;
     });
+    this.authService.currentUsers.subscribe((data:any)=>this.token=data[0])
 
   }
   start_date: any = '';
@@ -41,6 +45,8 @@ export class ChecksComponent {
             const orderDate = new Date(order.created_at);
             return orderDate >= startDate && orderDate <= endDate;
           });
+          console.log(this.checks);
+
         }
       }
       )
@@ -57,5 +63,17 @@ export class ChecksComponent {
         }
       });
     }
+  }
+
+  updateStatus(id:any){
+    this.changeStatus.id=id
+    this.changeStatus.Token=this.token
+    this.changeStatus.Stutes=this.selectval
+    this.orderService.changeStatus(this.changeStatus).subscribe((data:any)=>{
+      if (data) {
+        alert('updated Successfully');
+        window.location.reload();
+      }
+    })
   }
 }
