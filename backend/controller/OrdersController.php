@@ -44,16 +44,10 @@ class OrdersController {
 
     public function getOrder($id) {
         global $db;
-        $query = "SELECT  
-        oi.id, oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
-        o.room_no,o.status,o.created_at,
-        u.name as user_name 
-        FROM orders AS o
-        JOIN order_items AS oi ON o.id = oi.order_id
-        join users as u on o.user_id = u.id
-        JOIN products AS p ON oi.product_id = p.id Where o.user_id = $id";
-        $orders = $db->rows($query);
-        return $orders;
+
+        return $db->row("select status FROM orders WHERE id = :id ", ['id' => $id]);
+        // return $db->getById('orders', $id);
+
     }
     public function updateOrder($id, $data) {
         global $db;
@@ -122,6 +116,16 @@ class OrdersController {
     $orders = $db->delete("orders",$id);
     return $orders;
     }
+
+
+    public function deleteitem($id){
+        global $db;
+        $id = ['id'=>$id];
+    // $db->insert("order_items", 
+
+        $orders = $db->delete("order_items",$id);
+        return $orders;
+        }
 }
 
 ?>

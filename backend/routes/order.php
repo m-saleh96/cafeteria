@@ -141,7 +141,7 @@ if ($url[0] == 'orders' && $_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-    else if ($url[0] == 'order_cansel' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    else if ($url[0] == 'order_cancel' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         $validator = new Validator;
         header('Access-Control-Allow-Methods: POST');   
         $respones = file_get_contents('php://input');
@@ -185,8 +185,6 @@ if ($url[0] == 'orders' && $_SERVER['REQUEST_METHOD'] == 'GET') {
         else{
             echo json_encode("this token is  invalid");
         }       
-        
-          
 
 
 
@@ -196,16 +194,28 @@ if ($url[0] == 'orders' && $_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
+    }else if ($url[0] == 'order_cansel' && !isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+            $validator = new Validator;
+            header('Access-Control-Allow-Methods: POST');   
+            $respones = file_get_contents('php://input');
+            $respones= json_decode($respones, true);
+            $res = $ordersController->getOrder($respones['order_id']);
+            if($res='{status: processing}'){
 
+            $res = $ordersController->deleteitem($respones['item_id']);
+            if($res){
+                echo json_encode("delete item seccessively");
+            }
+            else{
+                echo json_encode("delete item failed because no item id found");
+            }
+            
+            }
+            else{
+                echo json_encode("statues not processing");
 
-
-
-
-
-
-
-    
-
+            }
+            
 
     }else if ($url[0] == 'orders' && isset($url[1]) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Access-Control-Allow-Methods: POST');
