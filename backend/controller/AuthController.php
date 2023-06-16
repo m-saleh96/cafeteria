@@ -130,7 +130,7 @@ public function is_admin($token){
     try {
         $decoded = JWT::decode($token, new Key($publicKey, 'RS256'));
         $decoded_array = (array) $decoded;
-        if($decoded_array['admin']==0){
+        if($decoded_array['admin']==1){
             return "admin";  
         }
         else{
