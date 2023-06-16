@@ -9,19 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+
 products:Product[]=[];
+
 constructor(private productService:ProductsService, private router: Router){}
 
 ngOnInit(){
   this.productService.getProducts().subscribe((data:any)=>{this.products=data
-    this.products.splice(8)
-  }
-  )
+    this.products.splice(8);
+  })
 }
 
 onViewAllClick() {
-  console.log("work");
-
   this.router.navigate(['/allproducts']);
 }
 }

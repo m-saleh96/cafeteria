@@ -33,7 +33,7 @@ export class ChecksComponent {
     if (Number(this.user) >= 1) {
       this.users.filter(u => { if (u.id == Number(this.user)) this.userName = u.Name })
       this.orderService.getOrderByUserId(Number(this.user)).subscribe((res: any) =>{
-        this.checks = res
+        this.checks = res.reverse();
         if (this.start_date && this.end_Date) {
           const startDate = new Date(this.start_date);
           const endDate = new Date(this.end_Date);
@@ -46,7 +46,7 @@ export class ChecksComponent {
       )
     } else {
       this.orderService.getOrders().subscribe((res: any) => {
-        this.checks = res
+        this.checks = res.reverse();
         if (this.start_date && this.end_Date) {
           const startDate = new Date(this.start_date);
           const endDate = new Date(this.end_Date);
