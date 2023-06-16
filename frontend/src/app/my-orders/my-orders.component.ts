@@ -22,6 +22,7 @@ ngOnInit(){
 filterOrders() {
   this.orderService.getOrderByUserId(this.userID).subscribe((res: any) => {
     this.orders = res;
+    this.orders.reverse();
     if (this.startDate && this.endDate) {
       const startDate = new Date(this.startDate);
       const endDate = new Date(this.endDate);
@@ -36,8 +37,6 @@ filterOrders() {
 deleteOrder(order_id:any , item_id:any){
 this.delOrder['order_id']=order_id;
 this.delOrder['item_id']=item_id
-console.log(this.delOrder);
-
 this.orderService.deleteOrder(this.delOrder).subscribe((data:any)=>{
   if(data){
     window.location.reload();

@@ -24,7 +24,7 @@ DATA:any
      const data=this.authService.getEmail_number()
       this.authService.resetPassword([data[1],loginForm.value.password]).subscribe((data)=>{
     //       // this.authService.saveCurrentUser(data)
-          this.router.navigate(['/home'])
+          this.router.navigate(['/login'])
         console.log(data)
 
       })
