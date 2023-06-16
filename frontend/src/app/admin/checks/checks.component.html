@@ -18,28 +18,34 @@
     </tr>
   </table>
 
-    <table class="table">
+    <table class="table text-center">
         <thead>
             <tr>
+                <th scope="col">Order</th>
                 <th scope="col">Name</th>
                 <th scope="col">Total Amount</th>
-                <th scope="col">Order Date</th>
                 <th scope="col">Total price</th>
-
-
+                <th scope="col">Order Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">change status</th>
             </tr>
         </thead>
         <tbody>
-
             <tr *ngFor="let check of checks">
-            <td >{{check?.user_name}}</td>
-                <td>{{check.quantity}}</td>
-
-                <td>{{check.created_at}}</td>
-                <td>{{check.price}}</td>
-
+              <td >{{check?.order_id}}</td>
+              <td >{{check?.user_name}}</td>
+              <td>{{check.quantity}}</td>
+              <td>{{check.price}}</td>
+              <td>{{check.created_at}}</td>
+              <td>{{check.status}}</td>
+              <td>
+                <select class="form-select" name="" id="" [(ngModel)]="selectval">
+                  <option value="out for delivery">Out for delivery</option>
+                  <option value="deliverd">deliverd</option>
+                </select>
+                <button (click)="updateStatus(check.order_id)" class="btn btn-success mt-1">Updata</button>
+              </td>
             </tr>
-
         </tbody>
     </table>
 </div>
