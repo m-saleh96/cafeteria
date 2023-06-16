@@ -26,10 +26,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { AllProductsComponent } from './all-products/all-products.component';
 import { AllProductsCardComponent } from './all-products-card/all-products-card.component';
 const routes: Routes = [
-  {
-    path: 'editUser/:id',
-    component: EditUserComponent
-  },
+
   {
     path:'',
     redirectTo :'home',
@@ -93,6 +90,10 @@ const routes: Routes = [
       {
         path: 'addUser',
         component: AddUserComponent
+      },
+      {
+        path: 'editUser/:id',
+        component: EditUserComponent
       },
       {
         path:'products',
