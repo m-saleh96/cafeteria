@@ -45,7 +45,7 @@ class OrdersController {
     public function getOrder($id) {
         global $db;
         $query = "SELECT  
-        oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
+        oi.id, oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
         o.room_no,o.status,o.created_at
         FROM orders AS o
         JOIN order_items AS oi ON o.id = oi.order_id
