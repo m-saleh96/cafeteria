@@ -44,6 +44,18 @@ class OrdersController {
 
     public function getOrder($id) {
         global $db;
+        $query = "SELECT  
+        oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
+        o.room_no,o.status,o.created_at
+        FROM orders AS o
+        JOIN order_items AS oi ON o.id = oi.order_id
+        
+        JOIN products AS p ON oi.product_id = p.id Where o.user_id = $id";
+        $orders = $db->rows($query);
+        return $orders;
+    }
+    public function getOrder2($id) {
+        global $db;
 
         return $db->row("select status FROM orders WHERE id = :id ", ['id' => $id]);
         // return $db->getById('orders', $id);
