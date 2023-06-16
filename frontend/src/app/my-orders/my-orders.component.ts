@@ -34,12 +34,13 @@ filterOrders() {
 }
 
 deleteOrder(order_id:any , item_id:any){
-this.delOrder.order_id=order_id;
-this.delOrder.item_id=item_id
+this.delOrder['order_id']=order_id;
+this.delOrder['item_id']=item_id
+console.log(this.delOrder);
+
 this.orderService.deleteOrder(this.delOrder).subscribe((data:any)=>{
   if(data){
-    console.log(data);
-
+    window.location.reload();
   }
 })
 }
