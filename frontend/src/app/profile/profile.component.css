@@ -51,4 +51,6 @@ td:first-child{
   color: aqua;
   width: 60px !important;
 }
-
+img{
+  border-radius: 50%;
+}

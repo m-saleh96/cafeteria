@@ -1,12 +1,12 @@
 <div class="container">
-  <table>
-    <tr>
+  <table style="border: none;">
+    <tr style="border: none;">
       <td><label for="start">Enter the start Date:</label></td>
       <td><input class="form-control" type="date" name="start_date" [(ngModel)]="start_date" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31"></td>
       <td><label for="end">Enter the End Date:</label></td>
       <td><input class="form-control" type="date" name="end_Date" [(ngModel)]="end_Date" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31"></td>
     </tr>
-    <tr>
+    <tr style="border: none;">
       <td><label for="start">Choose user :</label></td>
       <td>
         <select class="form-select" name="user" [(ngModel)]="user">
@@ -14,7 +14,7 @@
           <option *ngFor="let user of users" [ngValue]="user.id">{{user.Name}}</option>
         </select>
       </td>
-      <td><button class="btn btn-success mx-3 px-5" (click)="onSubmit()"> Filter </button></td>
+      <td><button class="btn btn-primary mx-3 px-5" (click)="onSubmit()"> Filter </button></td>
     </tr>
   </table>
 
@@ -32,7 +32,7 @@
         <tbody>
 
             <tr *ngFor="let check of checks">
-            <td >{{check.name}}</td>
+            <td >{{check?.user_name}}</td>
                 <td>{{check.quantity}}</td>
 
                 <td>{{check.created_at}}</td>

@@ -1,3 +1,4 @@
+
 <div class="container pt-5 text-end pb-3">
   <button (click)="addform()" class="btn btn-primary text-white">Add Category</button>
 </div>
@@ -27,7 +28,7 @@
   <tbody>
       <tr *ngFor="let row of category">
           <td>{{row.name}}</td>
-          <td><button type="button" class="btn btn-secondary" (click)="updateform(row.id)">Edit</button></td>
+          <td><button type="button" class="btn btn-warning" (click)="updateform(row.id)">Edit</button></td>
           <td><button type="button" class="btn btn-danger" (click)="deletecategory(row.id)">Delete</button></td>
 
       </tr>
