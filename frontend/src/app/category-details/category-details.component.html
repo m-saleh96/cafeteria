@@ -5,13 +5,13 @@
           <p *ngIf="product.length===0">Products not found</p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 bb py-5" *ngFor="let product of product">
-          <div class="card shadow py-3 px-2">
-            <img [src]="'http://localhost/cafeteria/backend/'+product?.picture" class="card-img-top" alt="..." height="250px" routerLink="/product-details/{{product.id}}">
+          <div class="card shadow py-3 px-2 h-100">
+            <img [src]="'http://localhost/cafeteria/backend/'+product.picture" class="card-img-top" alt="..." routerLink="/product-details/{{product.id}}">
             <div class="card-body d-flex flex-row justify-content-between">
               <div class="col-8">
-                <h4 class="card-title text-white">{{product?.name}}</h4>
-                <p class="card-text text-white">{{product?.description}}</p>
-                <p class="card-text text-white">{{product?.price}}</p>
+                <h4 class="card-title text-white">{{product.name}}</h4>
+                <p class="card-text text-white">{{product.description}}</p>
+                <p class="card-text text-white">{{product.price}}</p>
               </div>
               <div class="col-4 d-flex justify-content-end align-items-end">
                 <a class="btn px-3" (click)="addToCart(product.id)">Add</a>

@@ -19,8 +19,9 @@ $url = explode("/",$_SERVER['QUERY_STRING']);
 
 if($url[0] == 'products' && $_SERVER['REQUEST_METHOD'] == 'GET') {
     // $productsController = new ProductsController();
-    $products = $productsController->getAllProducts();
-    echo json_encode($products);
+  $productsController->getAllProducts();
+    // var_dump($products);
+    // echo json_encode($products);
 }
 
 

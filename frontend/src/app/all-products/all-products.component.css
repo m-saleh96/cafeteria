@@ -1,0 +1,9 @@
+.main{
+  background-color: var(--main-color);
+  padding-bottom: 100px;
+}
+p{
+  font-size: 3.2rem;
+  font-family: 'Amatic SC', cursive;
+  color: var(--light-orange);
+}

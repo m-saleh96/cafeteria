@@ -23,6 +23,7 @@ export class CategoryDetailsComponent {
     this.route.params.subscribe(params=>this.id=params['id'])
     this.categoryService.getCategoryByID(this.id).subscribe((data:any)=>this.product=data);
     this.requestService.orderRequests.subscribe(res=>this.requests=res);
+    this.counterService.counterVal.subscribe(res=>this.counter=res)
   }
 
   addToCart(id:number){

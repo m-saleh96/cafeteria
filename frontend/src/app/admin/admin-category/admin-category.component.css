@@ -1,0 +1,12 @@
+.table, thead, tbody, th, tbody td{
+  background-color: var(--light-gray);
+  color: white;
+}
+table, tbody td, tr, th{
+  border: 1px solid #373B3E;
+}
+h1{
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  color: var(--light-beige);
+}

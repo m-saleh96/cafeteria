@@ -1,6 +1,15 @@
-select{
-    width: 10rem;
+
+label{
+  margin: 15px;
+  color: white;
 }
-input{
-    margin: 2rem;
+table{
+    margin-top: 3rem;
+}
+.table, thead, tbody, th, tbody td{
+  background-color: var(--light-gray);
+  color: white;
+}
+table, tbody td, tr, th{
+  border: 1px solid #373B3E;
 }
