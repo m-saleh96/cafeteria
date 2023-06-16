@@ -44,8 +44,6 @@ export class ChecksComponent {
             const orderDate = new Date(order.created_at);
             return orderDate >= startDate && orderDate <= endDate;
           });
-          console.log(this.checks);
-
         }
       }
       )
@@ -70,7 +68,6 @@ export class ChecksComponent {
     this.changeStatus.Stutes='out for delivery';
     this.orderService.changeStatus(this.changeStatus).subscribe((data:any)=>{
       if (data) {
-        alert('updated Successfully');
         window.location.reload();
       }
     })
@@ -81,7 +78,6 @@ export class ChecksComponent {
     this.changeStatus.Stutes='deliverd';
     this.orderService.changeStatus(this.changeStatus).subscribe((data:any)=>{
       if (data) {
-        alert('updated Successfully');
         window.location.reload();
       }
     })

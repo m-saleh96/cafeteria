@@ -39,8 +39,8 @@
               <td>{{check.created_at}}</td>
               <td>{{check.status}}</td>
               <td>
-                <button *ngIf="check.status != 'out for delivery' && check.status == 'processing'"  (click)="outfordelivery(check.order_id)" class="btn btn-info mt-1 me-2">out for delivery</button>
-                <button *ngIf="check.status != 'deliverd'" (click)="deliverd(check.order_id)" class="btn btn-success mt-1">deliverd</button>
+                <button *ngIf="check.status != 'out for delivery' && check.status == 'processing'" (click)="outfordelivery(check.order_id)" class="btn btn-info mt-1 me-2">out for delivery</button>
+                <button *ngIf="check.status != 'deliverd' && check.status == 'out for delivery'" (click)="deliverd(check.order_id)" class="btn btn-success mt-1">deliverd</button>
               </td>
             </tr>
         </tbody>

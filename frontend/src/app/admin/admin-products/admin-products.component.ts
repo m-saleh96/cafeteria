@@ -55,7 +55,6 @@ export class AdminProductsComponent {
                 if (data) {
                   this.activeForm = false;
                   this.activeAddbutton = false;
-                  alert("success");
                   window.location.reload();
                 }
                 else{
@@ -80,7 +79,6 @@ export class AdminProductsComponent {
           if (data) {
             this.activeForm = false;
             this.activeupdatebutton = false
-            alert("Updated")
             window.location.reload();
           }
           else{
@@ -96,7 +94,6 @@ export class AdminProductsComponent {
     this.products = this.products.filter((elem:any)=>(elem.id)!=id)
     this.productService.deleteProduct(id).subscribe((res:any) => {
       if (res) {
-        alert("deleted successfully");
         window.location.reload();
       }
     });

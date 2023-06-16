@@ -107,7 +107,6 @@ export class CartComponent {
     this.order["room_no"]=this.room_no;
     this.orderService.sendOrder(this.order).subscribe((data:any)=>{
       if (data === "order created successfully") {
-        alert("confirmed");
         this.counterService.setCounter(0);
         this.requestService.setReq([]);
         this.route.navigate(['my-orders']);
