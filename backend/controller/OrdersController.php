@@ -8,7 +8,7 @@ class OrdersController {
         // $orders = $db->rows("SELECT * FROM orders");
         // return $orders;
         $query = "SELECT  
-        oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
+        oi.id, oi.order_id,oi.quantity, p.name,p.description,p.price,p.picture,
         o.room_no,o.status,o.created_at,
         u.name as user_name 
         FROM orders AS o
