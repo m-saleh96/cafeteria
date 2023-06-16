@@ -16,7 +16,6 @@ export class ChecksComponent {
   users !: Users[];
   checks !: ChecksOrder[];
   orders!: Order[];
-  selectval:any='out for delivery';
   changeStatus:any={};
   token!:any;
   constructor(private usersService: UsersService, private orderService: OrderService , private authService:AuthService) { }
@@ -45,8 +44,6 @@ export class ChecksComponent {
             const orderDate = new Date(order.created_at);
             return orderDate >= startDate && orderDate <= endDate;
           });
-          console.log(this.checks);
-
         }
       }
       )
@@ -65,13 +62,22 @@ export class ChecksComponent {
     }
   }
 
-  updateStatus(id:any){
-    this.changeStatus.id=id
-    this.changeStatus.Token=this.token
-    this.changeStatus.Stutes=this.selectval
+  outfordelivery(id:any){
+    this.changeStatus.id=id;
+    this.changeStatus.Token=this.token;
+    this.changeStatus.Stutes='out for delivery';
     this.orderService.changeStatus(this.changeStatus).subscribe((data:any)=>{
       if (data) {
-        alert('updated Successfully');
+        window.location.reload();
+      }
+    })
+  }
+  deliverd(id:any){
+    this.changeStatus.id=id;
+    this.changeStatus.Token=this.token;
+    this.changeStatus.Stutes='deliverd';
+    this.orderService.changeStatus(this.changeStatus).subscribe((data:any)=>{
+      if (data) {
         window.location.reload();
       }
     })

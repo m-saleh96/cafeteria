@@ -51,7 +51,6 @@ add(addUsers:any)
         console.log(formData);
         // Send the formData to the server using HttpClient
         this.userService.addUser(formData).subscribe((data:any)=>{
-            console.log(data);
             this.users=data
             this.router.navigate(['admin/users'])
 
