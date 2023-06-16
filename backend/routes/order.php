@@ -199,7 +199,7 @@ if ($url[0] == 'orders' && $_SERVER['REQUEST_METHOD'] == 'GET') {
             header('Access-Control-Allow-Methods: POST');   
             $respones = file_get_contents('php://input');
             $respones= json_decode($respones, true);
-            $res = $ordersController->getOrder($respones['order_id']);
+            $res = $ordersController->getOrder2($respones['order_id']);
             if($res='{status: processing}'){
 
             $res = $ordersController->deleteitem($respones['item_id']);
