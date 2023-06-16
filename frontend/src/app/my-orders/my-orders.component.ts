@@ -15,7 +15,7 @@ endDate!: string;
 constructor(private authService:AuthService , private orderService:OrderService){}
 ngOnInit(){
   this.authService.currentUsers.subscribe((data:any)=>this.userID=data[1].id);
-  this.orderService.getOrderByUserId(this.userID).subscribe((res:any)=>this.orders=res);
+  this.orderService.getOrderByUserId(this.userID).subscribe((res:any)=>this.orders=res.reverse());
 }
 
 filterOrders() {
