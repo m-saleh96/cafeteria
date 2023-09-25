@@ -9,4 +9,5 @@ Order Confirmation: Facilitated order confirmation, providing customers with an 
 Admin Dashboard: Developed a comprehensive admin dashboard, granting administrators full visibility into incoming orders and the ability to update their status.
 
 This cafeteria management system not only caters to customer needs but also equips administrators with the tools needed to efficiently manage and optimize the business.</br>
+
 to see proect please check this link https://www.linkedin.com/feed/update/urn:li:activity:7075597266077593600/
