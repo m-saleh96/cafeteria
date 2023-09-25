@@ -1,4 +1,4 @@
-#Cafeteria
+# Cafeteria
 
 Designed and implemented a versatile cafeteria management system that specializes in offering a wide range of drinks and fast-food items. The system boasts the following key features:
 
